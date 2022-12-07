@@ -1,0 +1,37 @@
+.crade h1, h3{
+    font-weight: bold;
+}
+
+.carde_main h1{
+  color: white !important;
+}
+
+.crade h3{
+  font-size: 1.25rem;
+}
+
+.i_emg img{
+  border-radius: 50%;
+}
+
+.iinn{
+  background-color: #7c2f6e;
+  color: white;
+  opacity: 5;
+}
+
+.text-jacarta-500 {
+  --tw-text-opacity: 1;
+  color: rgb(90 93 121/var(--tw-text-opacity));
+}
+
+.pppp{
+    color: white !important;
+  --tw-text-opacity: 1;
+}
+
+@media (min-width:620px) and (max-width:770px) {
+  .carde_hhh{
+    font-size: 17px !important;
+  }
+}

@@ -1,0 +1,131 @@
+.footer_list a{
+    text-decoration: none;
+    color: white !important;
+  /* --tw-text-opacity: 1; */
+    opacity: .9;
+}
+
+.use{
+  font-family: inherit;
+}
+
+.llii{
+  padding-bottom: 7px;
+}
+
+.footer_list a:hover{
+  color: #b93ca2 !important;
+}
+
+.footer_icon a{
+  text-decoration: none;
+  color: white !important;
+/* --tw-text-opacity: 1; */
+font-size: 22px;
+/* justify-content: space-between; */
+  /* opacity: .9; */
+}
+
+
+.footer_emg img{
+  width: 10rem;
+}
+
+.footer_icon{
+display: flex;
+
+}
+
+.footer_icon a:hover{
+color: #b93ca2 !important;
+}
+
+.jjjjjj{
+  display: flex !important;
+}
+
+.footer_main{
+    /* display: flex;
+    flex-direction: column; */
+    background-color: #4C2B46 !important;
+    font-family: 'DM Sans', sans-serif;
+    padding-top: 80px;
+    /* padding-bottom: 50px; */
+}
+
+.footer_p p {
+    text-align: start;
+    color: white !important;
+    margin-bottom: 30px;
+  }
+
+
+@media screen and (max-width: 600px) { 
+   
+
+    .arsh{
+      text-align: center !important;
+    }
+  
+    .footer_main p {
+      text-align: center !important;
+    }
+
+    audio, canvas, embed, iframe, img, object, svg, video {
+        display: inline-block;
+        vertical-align: middle;
+    }
+  
+    .footer_icon {
+      display: flex;
+      justify-content: center !important;
+      margin-bottom: 23px;
+    }
+
+    .footer_main ul{
+        margin-top: 10px;
+        margin-left: 0 !important;
+    }
+
+    .use{
+      text-align: center;
+    }
+
+    .llii{
+      text-align: center;
+    }
+
+    ol, ul {
+        padding-left: 0 !important;
+    }
+
+    .footer_main {
+      width: 100% !important;
+      /* height: 50% !important; */
+    }
+
+    .footer_emg{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+}
+
+.last_line{
+  display: flex;
+  font-size: 15px;
+  padding-top: 30px;
+}
+
+.term{
+  display: flex;
+  /* justify-content: space-between; */
+}
+
+.footer_sp{
+  text-align: left;
+}
+
+.grey a{
+  color: grey !important;
+}

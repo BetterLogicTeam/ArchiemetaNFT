@@ -1,0 +1,193 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* :root{
+  --hhh:black;
+  --hhh2:white;
+  --hxn: black;
+  --vxn: white;
+  --bdy2: url(./assets/img/gradient_dark.jpg);
+  --bdy: #4C2B46;
+  --abt: rgb(131,88,255);
+  --abt2: rgb(16 20 54);
+  --jcarta: rgb(90 93 121);
+  --jcarta2: rgb(161 162 179);
+  --inn: white;
+  --inn2: rgb(16 20 54);
+  --bnnr: url(./assets/img/banner.jpg);
+  --bnnr2: rgb(16 20 54);
+  --mint: white;
+  --mint2: rgb(16 20 54);
+  --bnnrp: white;
+  --hxxn: black;
+  --hxxn2: white;
+  --nav: rgb(16 20 54);
+  --colct: rgb(11, 17, 54);
+} */
+
+/* h1{
+  color: var(--hxn) !important;
+} */
+
+/* .light_theme .bnnr{
+  background-color: var(--mint) !important;
+} */
+
+/* .light_theme .apna{
+  color: var(--hxxn) !important;
+}
+
+.light_theme .banner_p {
+  color: var(--bnnrp) !important;
+}
+
+.light_theme .bnnr{
+  color: var(--bnnr) !important;
+}
+
+.light_theme .hhh{
+  color: var(--hhh) !important;
+}
+
+.light_theme .iinn{
+  color: var(--inn) !important;
+}
+
+.light_theme .para_graph{
+  color: var(--jcarta) !important;
+}
+
+.light_theme h1{
+  color: var(--hxn) !important;
+}
+
+.light_theme h2{
+  color: var(--hxn) !important;
+}
+
+.light_theme h3{
+  color: var(--hxn) !important;
+}
+
+.light_theme .last_para{
+  color: var(--hxn) !important;
+}
+
+.light_theme .hero_main{
+  background-image: var(--bdy) !important;
+}
+
+.light_theme .about_main{
+  background-color: var(--abt) !important;
+}
+
+.light_theme .carde_main{
+  background-image: var(--bdy) !important;
+}
+
+.light_theme .road_main{
+  background-image: var(--bdy) !important;
+}
+
+
+
+
+
+
+
+
+.dark_theme .nav_main{
+  color: var(--nav) !important;
+}
+
+.dark_theme .apna{
+  color: var(--hxxn2) !important;
+}
+
+.dark_theme .colct_main{
+  background: var(--colct) !important;
+}
+
+.dark_theme .mint_main{
+  background: var(--mint2) !important;
+}
+
+.dark_theme .bnnr{
+  background: var(--bnnr2) !important;
+}
+
+.dark_theme .iinn{
+  background-color: var(--inn2) !important;
+}
+
+.dark_theme .hhh{
+  color: var(--hhh2) !important;
+}
+
+.dark_theme .para_graph{
+  color: var(--jcarta2) !important;
+}
+
+.dark_theme h1,h2,h3{
+  color: var(--vxn) !important;
+}
+
+.dark_theme .last_para{
+  color: var(--vxn) !important;
+}
+
+.dark_theme .hero_main{
+  background-image: var(--bdy2) !important;
+}
+
+.dark_theme .about_main{
+  background-color: var(--colct) !important;
+}
+
+.dark_theme .carde_main{
+  background-image: var(--bdy2) !important;
+}
+
+.dark_theme .road_main{
+  background-image: var(--colct) !important;
+}
+
+.dark_theme .sell_main{
+  background-color: var(--colct) !important;
+} */

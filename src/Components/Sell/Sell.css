@@ -1,0 +1,11 @@
+.sell_font{
+    font-weight: bold;
+}
+
+form button{
+    margin-top: 5px;
+}
+
+.sell_main p, h2, h3{
+    color: white !important;
+}

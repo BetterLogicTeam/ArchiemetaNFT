@@ -1,0 +1,89 @@
+@media screen and (max-width:600px) {
+
+    .enput input {
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+    }
+
+    .lsc h1 {
+        font-size: 20px !important;
+    }
+}
+
+.container {
+    font-family: 'DM Sans', sans-serif;
+}
+
+.benifits_mmm h1 {
+    font-weight: 600;
+}
+
+.benifits_mmm2 h2 {
+    font-weight: 600;
+}
+
+.plus {
+    background-color: rgb(118, 74, 244);
+    color: white;
+    font-size: 18px;
+}
+
+.minus {
+    background-color: rgb(118, 74, 244);
+    color: white;
+    font-size: 18px;
+}
+
+.mint_in {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 100px;
+}
+
+/* .mint_bbbb{
+    display: flex !important;
+    justify-content: center !important;
+    margin-top: 10px;
+    align-items: center !important;
+} */
+
+@media screen and (max-width: 800px) {
+    .mint_bbbb2 {
+        flex-direction: column !important;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+}
+
+.count-form {
+    width: 100px;
+    text-align: center;
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
+.minus {
+    margin-right: 50px;
+}
+
+.price {
+    margin-top: 0px;
+    display: flex;
+    margin-right: 54px;
+    float: right;
+}
+
+.bttn {
+    margin-top: 10px;
+}
+
+.mint_main{
+    background-color: #4C2B46 !important;
+}
+
+.mint_bttn{
+    background-color: #7c2f6e !important;
+}

@@ -1,0 +1,135 @@
+/* .nav_main{
+    height: 3rem;
+} */
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+a:hover {
+  color: blueviolet;
+}
+
+.nav_main {
+  position: fixed;
+  color: white !important;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 10;
+  backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
+  --tw-backdrop-blur: blur(8px);
+  transition-duration: .15s;
+  transition-property: color,background-color,border-color,text-decoration-color,fill,stroke,-webkit-text-decoration-color;
+    transition-timing-function: cubic-bezier(.4,0,.2,1);
+  width: 100% !important;
+  /* background-color: hsla(0,0%,100%,.5); */
+  font-family: 'DM Sans', sans-serif;
+  /* opacity: 1.5; */
+  /* border: 2px solid black; */
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.nav_main img {
+  width: 11rem;
+}
+
+/* .nev{
+    width: 50%;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+} */
+
+.alna {
+  margin-left: 12rem;
+  /* float: right; */
+}
+
+.hxn {
+  margin-right: 10px;
+  font-weight: bold;
+  font-size: 14px;
+  /* color: black; */
+  font-family: 'DM Sans', sans-serif;
+}
+
+.dark .dark\:fill-white {
+  fill: #fff;
+}
+
+.tggl{
+  border-radius: 50%;
+  background-color: white;
+  /* font-size: 13px !important; */
+  color: black;
+  width: 3rem !important;
+  height: 3rem !important;
+  /* padding: 6px 20px 10px 20px !important; */
+  text-align: center;
+  border: 1px solid #7c2f6e;
+  /* padding-bottom: -5px !important; */
+}
+
+.tggl:hover{
+  background-color: #7c2f6e;
+  color: #fff;
+}
+
+@media screen and (max-width: 600px) {
+  .nav_main {
+    width: auto !important;
+  }
+
+  .alna {
+    text-align: center;
+    margin-left: 10rem;
+    /* padding: 0; */
+  }
+
+  .hxn {
+    margin-right: auto !important;
+  }
+}
+
+@media (min-width: 601px) and (max-width: 768px) {
+  .nav_main {
+    width: auto !important;
+  }
+
+  .alna {
+    margin-left: auto !important;
+  }
+
+  .hxn {
+    margin-right: auto !important;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .nav_main {
+    width: auto !important;
+  }
+  .alna {
+    margin-left: auto !important;
+  }
+
+  .hxn {
+    margin-right: auto !important;
+  }
+}
+
+@media (min-width: 1024px) and (max-width: 1440px) {
+  .nav_main {
+    width: auto !important;
+  }
+}
+
+
+.btna_navbar_here{
+  background-color: #7c2f6e;
+  color: white;
+  padding: 7px;
+  margin-top: -7px;
+}
