@@ -18,7 +18,7 @@ function Hero() {
               <h1 className="text-jacarta-700  font-display mb-6 text-center text-5xl dark:text-white md:text-left lg:text-6xl xl:text-7xl">
               Hello ArchieNeko Family
               </h1>
-              <p className="dark:text-white-200 para_graph mb-8 text-center text-lg md:text-left">
+              <p className="dark:text-white-200 para_grap mb-8 text-center text-lg md:text-left">
               We are creating an NFT collection called “ArchieMeta NFT”. As you all requested, it will be based on ETH  and be available to mint.
               </p>
               {/* <div className="flex space-x-4">

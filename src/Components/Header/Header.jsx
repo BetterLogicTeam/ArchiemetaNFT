@@ -72,7 +72,7 @@ function Header() {
     <div>
         <Navbar className='nav_main' collapseOnSelect expand="lg" >
       <Container>
-        <Navbar.Brand href="#home"><Link to="/"><img className='nev' src='V4.png'></img></Link></Navbar.Brand>
+        <Navbar.Brand href="#home"><Link to="/"><img className='nev' src='white.png'></img></Link></Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
         
@@ -87,7 +87,7 @@ function Header() {
               <Link to="/Collection_main" className='apna'>Collection</Link>
             </Nav.Link>
             <Nav.Link className='hxn' href="#Benifits">
-            <Link to="/Benifits_main" className='apna'>Benifits</Link>
+            <Link to="/Benifits_main" className='apna'>Clubs</Link>
             </Nav.Link>
             <Nav.Link className='hxn' href="#Attributes">
             <Link to="/Attributes_main" className='apna'>Attributes</Link>

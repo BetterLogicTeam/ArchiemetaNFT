@@ -3,6 +3,7 @@ import { BsFacebook } from "react-icons/bs";
 import { IoLogoTwitter } from "react-icons/io";
 import { FaTelegramPlane } from "react-icons/fa";
 import { BsInstagram } from "react-icons/bs";
+import { BsYoutube } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import "./Footer.css";
 
@@ -14,7 +15,7 @@ function Footer() {
           <div className="row">
             <div className="col-md-4">
               <Link to="/"><div className="footer_emg">
-                <img src="V4.png" alt="" className="max-h-7 mb-4" />
+                <img src="white.png" alt="" className="max-h-7 mb-4" />
               </div></Link>
               <div className="footer_p text-white">
                 <p>
@@ -23,14 +24,17 @@ function Footer() {
                 </p>
               </div>
               <div className="footer_icon space-x-5">
-                <a href="">
+                <a target="_blank" href="https://www.facebook.com/ArchieNek0">
                   <BsFacebook></BsFacebook>
                 </a>
-                <a href="">
+                <a target="_blank" href="https://twitter.com/Archieneko_">
                   <IoLogoTwitter></IoLogoTwitter>
                 </a>
-                <a href="">
+                <a target="_blank" href="https://www.instagram.com/archieneko/">
                   <BsInstagram></BsInstagram>
+                </a>
+                <a target="_blank" href="https://www.youtube.com/channel/UCgAHKac7syhmtB_tvDJezhg">
+                  <BsYoutube></BsYoutube>
                 </a>
               </div>
             </div>
@@ -71,7 +75,7 @@ function Footer() {
           <div class="flex flex-col items-center grey justify-between space-y-2 py-8 sm:flex-row sm:space-y-0">
             <span class="dark:text-jacarta-400 text-sm">
               ©<script>document.write(new Date().getFullYear())</script>2022
-              <a href="https://www.archieneko.com/" class="hover:text-accent">
+              <a target="_blank" href="https://www.archieneko.com/" class="hover:text-accent">
               WWW.ARCHIENEKO.COM
               </a>
             </span>

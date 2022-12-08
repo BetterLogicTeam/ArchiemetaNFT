@@ -15,7 +15,7 @@ function Mint_main() {
   const [userid, setuserid] = useState()
   let [mintPriceWire, setmintPriceWire] = useState(0);
   let [mintPriceBnb, setMintPriceBnb] = useState(0);
-  let [btnOne, setButtonOne] = useState("Mint With BNB");
+  let [btnOne, setButtonOne] = useState("Mint With ARC");
     let [btnTwo, setButtonTwo] = useState("Mint With JTO");
 
   const [show, setShow] = useState(false);
@@ -26,7 +26,7 @@ function Mint_main() {
 
 
   const increaseValue = () => {
-    if (value < 10) {
+    if (value < 5000) {
       setValue(++value);
       console.log("setValue", value);
     }
@@ -582,8 +582,8 @@ const myMintWire = async () => {
                     type="text"
                     id="qa"
                     // value="1"
-                    value={value} disabled
-                    // onChange={(e) => setValue(e.target.value)}
+                    value={value} 
+                    onChange={(e) => setValue(e.target.value)}
                   />
                 </div>{" "}
                 <div className="btn mint_bttn minus" onClick={() => increaseValue()}>
@@ -627,7 +627,7 @@ const myMintWire = async () => {
                         <p class="text-sm font-bold">
                           <h1 style={{ fontSize: "28px",color:"white" }}>
                             {/* {mintingtokenPrice} */}
-                            Price : {mintPriceBnb} BNB
+                            Price : {mintPriceBnb} ARC
                           </h1>
                         </p>
                       </a>

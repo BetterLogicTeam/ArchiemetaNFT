@@ -7,7 +7,18 @@
 }
 
 .crade h3{
-  font-size: 1.25rem;
+  font-size: 1rem;
+}
+
+.secccnd{
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+}
+
+.para_graph{
+  font-size: 13px;
+  margin-bottom: 5px !important;
 }
 
 .i_emg img{
