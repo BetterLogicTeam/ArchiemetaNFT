@@ -15,7 +15,7 @@ function Bring() {
     <div class="mx-auto max-w-xl text-center">
       <h5 class="font-display text-center dark:text-white" style={{color:"#F067D8"}}>Road Map</h5>
       <h1 class="font-display text-jacarta-700 mb-6 text-center text-4xl font-medium dark:text-white">
-        The Journey of the ARCIHIENEKO </h1>
+        The Journey of the Archieneko </h1>
      </div>
       {/* <!--section2-->  */}
         <div class="row">
@@ -24,7 +24,7 @@ function Bring() {
                     <div class="timeline">
                         <div class="timeline-icon"><span class="year">01.</span></div>
                         <div class="timeline-content">
-                            <h3 class="title">Launch ARCIHIENEKO NFTs</h3>
+                            <h3 class="title">Launch Archieneko NFTs</h3>
                             <p class="description">
                             Many non-utility NFTs have no real value other than the value a buyer or community believes it to have, based upon the rarity of its collectability or current hype surrounding the subject. 
 

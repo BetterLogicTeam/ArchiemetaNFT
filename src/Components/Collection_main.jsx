@@ -59,9 +59,9 @@ function Collection_main() {
           <div class="container">
             {/* <!-- Page Title --> */}
             <div class="mx-auto max-w-2xl py-16 text-center">
-              <h1 class="font-display text-jacarta-700 mb-8 text-4xl font-medium dark:text-white banner_p" style={{ color: "#fff" }}>NFT</h1>
+              <h1 class="font-display text-jacarta-700 mb-8 text-4xl font-medium dark:text-white banner_p" style={{ color: "#fff" }}>ArchieMeta NFT  </h1>
               <p class="dark:text-jacarta-300 text-lg leading-normal banner_p" style={{ color: "#fff" }}>
-                An exclusive private<br></br>-members club by ARCIHIENEKO
+                An Exclusive Avatar Collection<br/>
               </p>
             </div>
           </div>

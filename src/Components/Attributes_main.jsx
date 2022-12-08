@@ -15,7 +15,7 @@ function Attributes_main() {
           <div class="mx-auto max-w-2xl pt-16 text-center">
             <h1 class="font-display text-jacarta-700 mb-8 text-4xl font-medium dark:text-white banner_p" style={{color:"#fff"}}>Attributes</h1>
             <p class="dark:text-jacarta-300 banner_p text-lg leading-normal" style={{color:"#fff"}}>
-             An exclusive private<br></br>-members club by ARCIHIENEKO
+             An exclusive private<br></br>-members club by Archieneko
             </p>
           </div>
         </div>

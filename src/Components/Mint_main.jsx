@@ -16,7 +16,7 @@ function Mint_main() {
   let [mintPriceWire, setmintPriceWire] = useState(0);
   let [mintPriceBnb, setMintPriceBnb] = useState(0);
   let [btnOne, setButtonOne] = useState("Mint With ARC");
-    let [btnTwo, setButtonTwo] = useState("Mint With JTO");
+  let [btnTwo, setButtonTwo] = useState("Mint With JTO");
 
   const [show, setShow] = useState(false);
 
@@ -52,208 +52,214 @@ function Mint_main() {
     let acc = await loadWeb3();
     // console.log("ACC=",acc)
     if (acc == "No Wallet") {
-        toast.error("No Wallet Connected")
+      toast.error("No Wallet Connected")
     }
     else if (acc == "Wrong Network") {
-        toast.error("Wrong Newtwork please connect to test net")
+      toast.error("Wrong Newtwork please connect to test net")
     } else {
-        try {
-            setButtonOne("Please Wait While Processing")
-            console.log("mintFor BNB");
-            const web3 = window.web3;
-            let nftContractOf = new web3.eth.Contract(wireNftContractAbi, wireNftContractAddress);
-            let maxSupply = await nftContractOf.methods.maxsupply().call();
-            let ttlSupply = await nftContractOf.methods.totalSupply().call();
-            let paused = await nftContractOf.methods.paused().call();
-            let maxLimitprTransaction = await nftContractOf.methods.MaxLimitPerTransaction().call();
-            let mintingbnbPrice = await nftContractOf.methods.MinitngPricein_MATIC().call()
-            console.log("jjjjj", mintingbnbPrice);
-            mintingbnbPrice = web3.utils.fromWei(mintingbnbPrice);
-            mintingbnbPrice = parseFloat(mintingbnbPrice)
-            setMintPriceBnb(mintingbnbPrice)
-            let totalMintingPriceBNB = value * mintingbnbPrice
-            console.log("maxSupply", maxSupply);
-            console.log("ttlSupply", maxLimitprTransaction);
+      try {
+        setButtonOne("Please Wait While Processing")
+        console.log("mintFor BNB");
+        const web3 = window.web3;
+        let nftContractOf = new web3.eth.Contract(wireNftContractAbi, wireNftContractAddress);
+        let maxSupply = await nftContractOf.methods.maxsupply().call();
+        let ttlSupply = await nftContractOf.methods.totalSupply().call();
+        let paused = await nftContractOf.methods.paused().call();
+        let maxLimitprTransaction = await nftContractOf.methods.MaxLimitPerTransaction().call();
+        let mintingbnbPrice = await nftContractOf.methods.MinitngPricein_MATIC().call()
+        console.log("jjjjj", mintingbnbPrice);
+        mintingbnbPrice = web3.utils.fromWei(mintingbnbPrice);
+        mintingbnbPrice = parseFloat(mintingbnbPrice)
+        setMintPriceBnb(mintingbnbPrice)
+        let totalMintingPriceBNB = value * mintingbnbPrice
+        console.log("maxSupply", maxSupply);
+        console.log("ttlSupply", maxLimitprTransaction);
 
-            console.log("mintingbnbPrice", mintingbnbPrice);
+        console.log("mintingbnbPrice", mintingbnbPrice);
 
-            let llisted_check = await nftContractOf.methods.iswhitelist(acc).call()
-            console.log("iswhitelist", llisted_check);
+        let llisted_check = await nftContractOf.methods.iswhitelist(acc).call()
+        console.log("iswhitelist", typeof llisted_check);
 
 
+        if (llisted_check == true) {
+          if (parseInt(ttlSupply) < parseInt(maxSupply)) {
+            if (paused == false) {
+              if (value < parseInt(maxLimitprTransaction)) {
+                console.log("Minting Value= ", value);
+                console.log("Minting totalMintingPriceBNB= ", totalMintingPriceBNB);
 
-            if (llisted_check == 'true') {
-                if (parseInt(ttlSupply) < parseInt(maxSupply)) {
-                    if (paused == false) {
-                        if (value < parseInt(maxLimitprTransaction)) {
-                            console.log("Minting Value= ", value);
-                            console.log("Minting totalMintingPriceBNB= ", totalMintingPriceBNB);
+                totalMintingPriceBNB = web3.utils.toWei(totalMintingPriceBNB.toString())
 
-                            totalMintingPriceBNB = web3.utils.toWei(totalMintingPriceBNB.toString())
-                            await nftContractOf.methods.mint_with_MATIC(value).send({
-                                from: acc,
-                                value: totalMintingPriceBNB.toString()
-
-                            })
-                            toast.success("Transaction Confirmed")
-                            setButtonOne("Mint With BNB")
-
-                        } else {
-                            toast.error("No of Minting is Greater than maximum limit Per Transaction")
-                            setButtonOne("Mint With BNB")
-
-                        }
-                    } else {
-                        toast.error("Paused is False")
-                        setButtonOne("Mint With BNB")
-
-                    }
-
-                } else {
-                    toast.error("Max Supply is Greater than total Supply")
-                    setButtonOne("Mint With BNB")
-
-                }
-            }
-            else {
-                let BusdPrice = await nftContractOf.methods.WhitelistMintingPricein_MATIC().call();
 
                 await nftContractOf.methods.mint_with_MATIC(value).send({
-                    from: acc,
-                    value: value * BusdPrice.toString()
+                  from: acc,
+                  value: 0
+
                 })
-
-
                 toast.success("Transaction Confirmed")
                 setButtonOne("Mint With BNB")
 
+              } else {
+                toast.error("No of Minting is Greater than maximum limit Per Transaction")
+                setButtonOne("Mint With BNB")
+
+              }
+            } else {
+              toast.error("Paused is False")
+              setButtonOne("Mint With BNB")
 
             }
 
-
-
-
-        } catch (e) {
-            console.log("Error while minting ", e)
-            toast.error("Transaction failed")
+          } else {
+            toast.error("Max Supply is Greater than total Supply")
             setButtonOne("Mint With BNB")
+
+          }
+        }
+        else {
+          let BusdPrice = await nftContractOf.methods.WhitelistMintingPricein_MATIC().call();
+
+          await nftContractOf.methods.mint_with_MATIC(value).send({
+            from: acc,
+            value: value * BusdPrice.toString()
+          })
+
+
+          toast.success("Transaction Confirmed")
+          setButtonOne("Mint With BNB")
+
 
         }
 
+
+
+
+      } catch (e) {
+        console.log("Error while minting ", e)
+        toast.error("Transaction failed")
+        setButtonOne("Mint With BNB")
+
+      }
+
     }
-}
-const myMintWire = async () => {
+  }
+  const myMintWire = async () => {
     let acc = await loadWeb3();
     // console.log("ACC=",acc)
     if (acc == "No Wallet") {
-        toast.error("No Wallet Connected")
+      toast.error("No Wallet Connected")
     }
     else if (acc == "Wrong Network") {
-        toast.error("Wrong Newtwork please connect to test net")
+      toast.error("Wrong Newtwork please connect to test net")
     } else {
-        try {
-            setButtonTwo("Please Wait While Processing")
-            console.log("mintFor Wire");
-            const web3 = window.web3;
-            let nftContractOf = new web3.eth.Contract(wireNftContractAbi, wireNftContractAddress);
-            let wireContractOf = new web3.eth.Contract(wireTokenAbi, wireTokenAddress);
-            let userBusdBalance = await wireContractOf.methods.balanceOf(acc).call();
-            userBusdBalance = web3.utils.fromWei(userBusdBalance)
-            let maxSupply = await nftContractOf.methods.maxsupply().call();
-            let ttlSupply = await nftContractOf.methods.totalSupply().call();
-            let paused = await nftContractOf.methods.paused().call();
-            let maxLimitprTransaction = await nftContractOf.methods.MaxLimitPerTransaction().call();
-            let mintingWirePrice = await nftContractOf.methods.MinitngPricein_MMX().call()
-            mintingWirePrice = web3.utils.fromWei(mintingWirePrice);
-            mintingWirePrice = parseFloat(mintingWirePrice)
-            setmintPriceWire(mintingWirePrice);
-            let totalMintingPriceWire = value * mintingWirePrice
-            console.log("maxSupply", maxSupply);
-            console.log("ttlSupply", maxLimitprTransaction);
+      try {
+        setButtonTwo("Please Wait While Processing")
+        console.log("mintFor Wire");
+        const web3 = window.web3;
+        let nftContractOf = new web3.eth.Contract(wireNftContractAbi, wireNftContractAddress);
+        let wireContractOf = new web3.eth.Contract(wireTokenAbi, wireTokenAddress);
+        let userBusdBalance = await wireContractOf.methods.balanceOf(acc).call();
+        userBusdBalance = web3.utils.fromWei(userBusdBalance)
+        let maxSupply = await nftContractOf.methods.maxsupply().call();
+        let ttlSupply = await nftContractOf.methods.totalSupply().call();
+        let paused = await nftContractOf.methods.paused().call();
+        let maxLimitprTransaction = await nftContractOf.methods.MaxLimitPerTransaction().call();
+        let mintingWirePrice = await nftContractOf.methods.MinitngPricein_MMX().call()
+        mintingWirePrice = web3.utils.fromWei(mintingWirePrice);
+        alert(mintingWirePrice)
+        mintingWirePrice = parseFloat(mintingWirePrice)
+        setmintPriceWire(mintingWirePrice);
+        let totalMintingPriceWire = value * mintingWirePrice
+        console.log("maxSupply", maxSupply);
+        console.log("ttlSupply", maxLimitprTransaction);
 
-            console.log("mintingWirePrice", mintingWirePrice);
-            let llisted_check = await nftContractOf.methods.iswhitelist(acc).call()
-            console.log("iswhitelist", llisted_check);
+        console.log("mintingWirePrice", mintingWirePrice);
+        let llisted_check = await nftContractOf.methods.iswhitelist(acc).call()
+        console.log("iswhitelist", llisted_check);
 
 
-            if (llisted_check == 'true') {
+        if (llisted_check == 'true') {
 
-                if (parseInt(ttlSupply) < parseInt(maxSupply)) {
-                    if (paused == false) {
-                        if (value < parseInt(maxLimitprTransaction)) {
-                            if (parseFloat(userBusdBalance) >= totalMintingPriceWire) {
-                                console.log("Minting Value= ", value);
-                                console.log("Minting totalMintingPriceWire= ", totalMintingPriceWire);
+          if (parseInt(ttlSupply) < parseInt(maxSupply)) {
+            if (paused == false) {
+              if (value < parseInt(maxLimitprTransaction)) {
+                if (parseFloat(userBusdBalance) >= totalMintingPriceWire) {
+                  console.log("Minting Value= ", value);
+                  console.log("Minting totalMintingPriceWire= ", totalMintingPriceWire);
 
-                                totalMintingPriceWire = web3.utils.toWei(totalMintingPriceWire.toString())
-                                await wireContractOf.methods.approve(wireNftContractAddress, totalMintingPriceWire).send({
-                                    from: acc
-                                })
-                                toast.success("Transaction Confirmed")
-                                setButtonTwo("Please Wait for Second Confirmation")
-                                await nftContractOf.methods.mint_with_MMX(value, totalMintingPriceWire.toString()).send({
-                                    from: acc,
-                                })
-                                toast.success("Transaction Succefful")
-                                setButtonTwo("Mint With JTO")
-
-                            } else {
-                                toast.error("Out Of Balance")
-                                setButtonTwo("Mint With JTO")
-
-                            }
-
-                        } else {
-                            toast.error("No of Minting is Greater than maximum limit Per Transaction")
-                            setButtonTwo("Mint With JTO")
-
-                        }
-                    } else {
-                        toast.error("Paused is False")
-                        setButtonTwo("Mint With JTO")
-
-                    }
+                  totalMintingPriceWire = web3.utils.toWei(totalMintingPriceWire.toString())
+                  await wireContractOf.methods.approve(wireNftContractAddress, totalMintingPriceWire).send({
+                    from: acc
+                  })
+                  toast.success("Transaction Confirmed")
+                  setButtonTwo("Please Wait for Second Confirmation")
+                  await nftContractOf.methods.mint_with_MMX(value, totalMintingPriceWire.toString()).send({
+                    from: acc,
+                  })
+                  toast.success("Transaction Succefful")
+                  setButtonTwo("Mint With JTO")
 
                 } else {
-                    toast.error("Max Supply is Greater than total Supply")
-                    setButtonTwo("Mint With JTO")
+                  toast.error("Out Of Balance")
+                  setButtonTwo("Mint With JTO")
 
                 }
 
-            }
-            else {
-
-                let BusdPrice = await nftContractOf.methods.WhitelistMinitngPricein_MMX().call();
-                totalMintingPriceWire = web3.utils.toWei(totalMintingPriceWire.toString())
-                await wireContractOf.methods.approve(wireNftContractAddress, totalMintingPriceWire).send({
-                    from: acc
-                })
-
-                let a = web3.utils.fromWei(BusdPrice);
-                a = parseFloat(a)
-                let b = a * value;
-                let c = web3.utils.toWei(b.toString());
-
-                await nftContractOf.methods.mint_with_MMX(value, c).send({
-                    from: acc,
-                })
-
-
+              } else {
+                toast.error("No of Minting is Greater than maximum limit Per Transaction")
                 setButtonTwo("Mint With JTO")
 
+              }
+            } else {
+              toast.error("Paused is False")
+              setButtonTwo("Mint With JTO")
 
             }
 
-
-        } catch (e) {
-            console.log("Error while minting ", e)
-            toast.error("Transaction failed")
+          } else {
+            toast.error("Max Supply is Greater than total Supply")
             setButtonTwo("Mint With JTO")
+
+          }
+
+        }
+        else {
+
+          let BusdPrice = await nftContractOf.methods.WhitelistMinitngPricein_MMX().call();
+
+          totalMintingPriceWire = web3.utils.toWei(totalMintingPriceWire.toString())
+          await wireContractOf.methods.approve(wireNftContractAddress, totalMintingPriceWire).send({
+            from: acc
+          })
+
+          let a = web3.utils.fromWei(BusdPrice);
+
+
+          a = parseFloat(a)
+          let b = a * value;
+          let c = web3.utils.toWei(b.toString());
+
+
+          await nftContractOf.methods.mint_with_MMX(value, c).send({
+            from: acc,
+          })
+
+
+          setButtonTwo("Mint With JTO")
+
 
         }
 
+
+      } catch (e) {
+        console.log("Error while minting ", e)
+        toast.error("Transaction failed")
+        setButtonTwo("Mint With JTO")
+
+      }
+
     }
-}
+  }
 
 
 
@@ -460,35 +466,35 @@ const myMintWire = async () => {
     let acc = await loadWeb3();
     // console.log("ACC=",acc)
     if (acc == "No Wallet") {
-        toast.error("No Wallet Connected")
+      toast.error("No Wallet Connected")
     }
     else if (acc == "Wrong Network") {
-        toast.error("Wrong Newtwork please connect to test net")
+      toast.error("Wrong Newtwork please connect to test net")
     } else {
 
-        try {
-            console.log("mintFor BUSD");
-            const web3 = window.web3;
-            let nftContractOf = new web3.eth.Contract(wireNftContractAbi, wireNftContractAddress);
-            // let mintingBusdPrice = await nftContractOf.methods.MinitngPricein_BUSD().call()
-            // mintingBusdPrice = web3.utils.fromWei(mintingBusdPrice);
-            // mintingBusdPrice = parseFloat(mintingBusdPrice)
-            // setMintPriceBUSD(mintingBusdPrice)
+      try {
+        console.log("mintFor BUSD");
+        const web3 = window.web3;
+        let nftContractOf = new web3.eth.Contract(wireNftContractAbi, wireNftContractAddress);
+        // let mintingBusdPrice = await nftContractOf.methods.MinitngPricein_BUSD().call()
+        // mintingBusdPrice = web3.utils.fromWei(mintingBusdPrice);
+        // mintingBusdPrice = parseFloat(mintingBusdPrice)
+        // setMintPriceBUSD(mintingBusdPrice)
 
-            let mintingWirePrice = await nftContractOf.methods.MinitngPricein_MMX().call()
-            mintingWirePrice = web3.utils.fromWei(mintingWirePrice);
-            mintingWirePrice = parseFloat(mintingWirePrice)
-            setmintPriceWire(mintingWirePrice);
+        let mintingWirePrice = await nftContractOf.methods.MinitngPricein_MMX().call()
+        mintingWirePrice = web3.utils.fromWei(mintingWirePrice);
+        mintingWirePrice = parseFloat(mintingWirePrice)
+        setmintPriceWire(mintingWirePrice);
 
-            let mintingbnbPrice = await nftContractOf.methods.MinitngPricein_MATIC().call()
-            mintingbnbPrice = web3.utils.fromWei(mintingbnbPrice);
-            mintingbnbPrice = parseFloat(mintingbnbPrice)
-            setMintPriceBnb(mintingbnbPrice)
-        } catch (e) {
-            console.log("Error while getting minting Price");
-        }
+        let mintingbnbPrice = await nftContractOf.methods.MinitngPricein_MATIC().call()
+        mintingbnbPrice = web3.utils.fromWei(mintingbnbPrice);
+        mintingbnbPrice = parseFloat(mintingbnbPrice)
+        setMintPriceBnb(mintingbnbPrice)
+      } catch (e) {
+        console.log("Error while getting minting Price");
+      }
     }
-}
+  }
 
 
 
@@ -582,7 +588,7 @@ const myMintWire = async () => {
                     type="text"
                     id="qa"
                     // value="1"
-                    value={value} 
+                    value={value}
                     onChange={(e) => setValue(e.target.value)}
                   />
                 </div>{" "}
@@ -601,7 +607,7 @@ const myMintWire = async () => {
                       data-bs-target="#placeBidModal"
                       class="bg-accent shadow-accent-volume hover:bg-accent-dark inline-block w-full 
                     rounded-full py-3 px-8 text-center font-semibold text-white transition-all"
-                    onClick={() => myMintBNB()}
+                      onClick={() => myMintBNB()}
                     >
                       {btnOne}
                     </a>
@@ -613,7 +619,7 @@ const myMintWire = async () => {
                     <a href="user.html" class="text-accent">
                       <p class="text-sm font-bold">
                         <h1 style={{ fontSize: "28px" }}>
-                         
+
                           {/* Price : {mintPriceBnb} BNB */}
                         </h1>
                       </p>
@@ -625,14 +631,14 @@ const myMintWire = async () => {
                     <div class="">
                       <a href="user.html" class="text-accent ">
                         <p class="text-sm font-bold">
-                          <h1 style={{ fontSize: "28px",color:"white" }}>
+                          <h1 style={{ fontSize: "28px", color: "white" }}>
                             {/* {mintingtokenPrice} */}
                             Price : {mintPriceBnb} ARC
                           </h1>
                         </p>
                       </a>
                     </div>
-                    
+
                   </div>
                 </div>
 
@@ -688,7 +694,7 @@ const myMintWire = async () => {
 
               {/* <!-- Creator / Owner --> */}
 
-              
+
               {/* <div class="mb-8 flex flex-wrap">
                 <div class="mr-8 mb-4 flex">
                   <figure class="mr-4 shrink-0">
