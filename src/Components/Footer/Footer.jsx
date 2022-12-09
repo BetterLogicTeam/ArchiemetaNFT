@@ -54,7 +54,7 @@ function Footer() {
                   <li className="llii">Collection</li>
                 </Link>
                 <Link to="/Benifits_main">
-                  <li className="llii">Benifits</li>
+                  <li className="llii">Clubs</li>
                 </Link>
                 <Link to="/Attributes_main">
                   <li className="llii">Attributes</li>

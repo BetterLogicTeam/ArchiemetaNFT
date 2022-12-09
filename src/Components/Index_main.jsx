@@ -7,6 +7,7 @@ import Bring from './Bring/Bring';
 import Carde from './Carde/Carde';
 import Sell from './Sell/Sell';
 import Footer from './Footer/Footer';
+import Income from './Income/Income';
 
 
 export default function Index_main() {
@@ -16,6 +17,7 @@ export default function Index_main() {
      <About />
      <Carde />
      <Bring />
+     <Income />
      <Sell />
     </div>
   );

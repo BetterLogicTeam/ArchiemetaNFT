@@ -23,6 +23,8 @@ import About_main from './Components/About_main';
 import Benifits_main from './Components/Benifits_main';
 import Attributes_main from './Components/Attributes_main';
 import Roadmap_main from './Components/Roadmap_main';
+import Income from './Components/Income/Income';
+import Income_main from './Components/Income_main';
 
 function App() {
   return (
@@ -38,6 +40,7 @@ function App() {
       <Route exact path="/Attributes_main" element={<Attributes_main />} />
       <Route exact path="/Roadmap_main" element={<Roadmap_main />} />
       <Route exact path="/Mint_main" element={<Mint_main />} />
+      <Route exact path="/Income" element={<Income_main />} />
       </Routes>
       <Footer />
       </BrowserRouter>

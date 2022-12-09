@@ -46,7 +46,7 @@ function About() {
                 <p class="dark:text-jacarta-300 mb-8 text-lg leading-normal" style={{color:"#fff"}}>
                 Our project was created with our holder in mind and we have done everything in our ability to keep that word and yet volatile pricing in the crypto market caused our chart a lot
  </p>
-                <p class="dark:text-jacarta-300 mb-10" style={{color:"#fff"}}>
+                <p class="dark:text-jacarta-300 text-lg mb-10" style={{color:"#fff"}}>
                 We have decided as a community to create our own Layer 1 Block Chain and support upcoming Metaverse (ARCHIE META) project.
 The need exists to change the current crypto space where the value of your project is only tied to hype and buying or selling the coin/token
                
