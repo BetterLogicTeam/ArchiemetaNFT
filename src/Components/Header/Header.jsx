@@ -90,7 +90,7 @@ function Header() {
             <Link to="/Benifits_main" className='apna'>Clubs</Link>
             </Nav.Link>
             <Nav.Link className='hxn' href="#Benifits">
-            <Link to="/Income" className='apna'>Income</Link>
+            <Link to="/Income" className='apna'>Passive Income</Link>
             </Nav.Link>
             <Nav.Link className='hxn' href="#Attributes">
             <Link to="/Attributes_main" className='apna'>Attributes</Link>
