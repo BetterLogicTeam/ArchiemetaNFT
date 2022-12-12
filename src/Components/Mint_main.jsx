@@ -54,7 +54,8 @@ function Mint_main() {
     }
     else if (acc == "Wrong Network") {
       toast.error("Wrong Newtwork please connect to test net")
-    } else {
+    } 
+    else {
       try {
         setButtonOne("Please Wait While Processing")
         console.log("mintFor BNB");
@@ -65,11 +66,15 @@ function Mint_main() {
         setMintPriceBnb(mintingarcPrice)
         let totalMintingPriceARC = value * mintingarcPrice
         console.log("mintingbnbPrice", totalMintingPriceARC);
+        let payableAmount=web3.utils.toWei(totalMintingPriceARC.toString())
+        console.log("payableAmount", payableAmount);
+
+
 
 
                 await nftContractOf.methods.mint(value).send({
                   from: acc,
-                  value: totalMintingPriceARC
+                  value: payableAmount.toString()
 
                 })
                 toast.success("Transaction Confirmed")
