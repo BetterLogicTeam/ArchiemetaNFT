@@ -15,7 +15,7 @@ function Carde() {
     <div class="mx-auto max-w-xl text-center">
       <h5 class="font-display text-center dark:text-white" style={{color:"#F067D8"}}>Our Speciality</h5>
       <h1 class="font-display text-jacarta-700  text-center text-4xl font-medium dark:text-white">
-        CLUBS OF ARCIHIENEKO
+        CLUBS OF ARCHIENEKO
       </h1>
       <p class="dark:text-jacarta-200 mb-16 para_graph text-lg leading-normal pppp">
       ArchieChain (ARC) is a decentralized public blockchain that has high performance and EVM compatibilities.

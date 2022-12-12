@@ -27,17 +27,17 @@ function Mint_main() {
   const increaseValue = () => {
     if (value < 5000) {
       setValue(++value);
-      console.log("setValue", value);
+      // console.log("setValue", value);
     }
   };
 
   const decreaseValue = () => {
     if (value > 1) {
       setValue(--value);
-      console.log("setValue", value);
+      // console.log("setValue", value);
     }
   };
- 
+
   const [inputdatahere, setinputdatahere] = useState("100");
 
 
@@ -54,7 +54,7 @@ function Mint_main() {
     }
     else if (acc == "Wrong Network") {
       toast.error("Wrong Newtwork please connect to test net")
-    } 
+    }
     else {
       try {
         setButtonOne("Please Wait While Processing")
@@ -66,22 +66,22 @@ function Mint_main() {
         setMintPriceBnb(mintingarcPrice)
         let totalMintingPriceARC = value * mintingarcPrice
         console.log("mintingbnbPrice", totalMintingPriceARC);
-        let payableAmount=web3.utils.toWei(totalMintingPriceARC.toString())
+        let payableAmount = web3.utils.toWei(totalMintingPriceARC.toString())
         console.log("payableAmount", payableAmount);
 
 
 
 
-                await nftContractOf.methods.mint(value).send({
-                  from: acc,
-                  value: payableAmount.toString()
+        await nftContractOf.methods.mint(value).send({
+          from: acc,
+          value: payableAmount.toString()
 
-                })
-                toast.success("Transaction Confirmed")
-                setButtonOne("Mint With ETH")
+        })
+        toast.success("Transaction Confirmed")
+        setButtonOne("Mint With ETH")
 
-              }
-       catch (e) {
+      }
+      catch (e) {
         console.log("Error while minting ", e)
         toast.error("Transaction failed")
         setButtonOne("Mint With ETH")
@@ -98,6 +98,20 @@ function Mint_main() {
 
 
   const getMydata = async () => {
+    const web3 = window.web3;
+
+    let nftContractOf = new web3.eth.Contract(wireNftContractAbi, wireNftContractAddress);
+
+    let mintingbnbPrice = await nftContractOf.methods.minting_price().call()
+    // console.log('fraz', mintingbnbPrice)
+
+
+    mintingbnbPrice = web3.utils.fromWei(mintingbnbPrice);
+    mintingbnbPrice = parseFloat(mintingbnbPrice)
+    setMintPriceBnb(mintingbnbPrice)
+
+    // alert(mintingbnbPrice)
+
     let acc = await loadWeb3();
     // console.log("ACC=",acc)
     if (acc == "No Wallet") {
@@ -121,10 +135,11 @@ function Mint_main() {
         mintingWirePrice = parseFloat(mintingWirePrice)
         setmintPriceWire(mintingWirePrice);
 
-        let mintingbnbPrice = await nftContractOf.methods.MinitngPricein_MATIC().call()
-        mintingbnbPrice = web3.utils.fromWei(mintingbnbPrice);
-        mintingbnbPrice = parseFloat(mintingbnbPrice)
-        setMintPriceBnb(mintingbnbPrice)
+        // let mintingbnbPrice = await nftContractOf.methods.MinitngPricein_MATIC().call()
+        // mintingbnbPrice = web3.utils.fromWei(mintingbnbPrice);
+        // mintingbnbPrice = parseFloat(mintingbnbPrice)
+
+        // setMintPriceBnb(mintingbnbPrice)
       } catch (e) {
         console.log("Error while getting minting Price");
       }
@@ -375,7 +390,7 @@ function Mint_main() {
 
           </Form.Group>
 
-        
+
           <div className="btn minus" onClick={() => { CheckSponserid() }}>
             submit
           </div>
