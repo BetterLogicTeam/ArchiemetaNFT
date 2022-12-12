@@ -2,29 +2,17 @@ import Web3 from "web3";
 let isItConnected = false;
 const networks = {
   bsc: {
-    chainId: `0x${Number(56).toString(16)}`,
-    chainName: "Binance smart chain",
+    chainId: `0x${Number(5).toString(16)}`,
+    chainName: "Goerli test network",
     nativeCurrency: {
-      name: "BSC",
-      symbol: "BNB",
+      name: "GoerliETH",
+      symbol: "GoerliETH",
       decimals: 18,
     },
     rpcUrls: [
-      "https://bsc-dataseed1.binance.org",
-      "https://bsc-dataseed2.binance.org",
-      "https://bsc-dataseed3.binance.org",
-      "https://bsc-dataseed4.binance.org",
-      "https://bsc-dataseed1.defibit.io",
-      "https://bsc-dataseed2.defibit.io",
-      "https://bsc-dataseed3.defibit.io",
-      "https://bsc-dataseed4.defibit.io",
-      "https://bsc-dataseed1.ninicoin.io",
-      "https://bsc-dataseed2.ninicoin.io",
-      "https://bsc-dataseed3.ninicoin.io",
-      "https://bsc-dataseed4.ninicoin.io",
-      "wss://bsc-ws-node.nariox.org",
+      "https://goerli.infura.io/v3/"
     ],
-    blockExplorerUrls: ["https://bscscan.com"],
+    blockExplorerUrls: ["https://goerli.etherscan.io"],
   },
 };
 const changeNetwork = async ({ networkName }) => {
@@ -71,7 +59,7 @@ export const loadWeb3 = async () => {
       await window.web3.eth.getChainId((err, netId) => {
         // console.log("networkId==>", netId);
         switch (netId.toString()) {
-          case "56":
+          case "5":
             isItConnected = true;
             break;
           default:

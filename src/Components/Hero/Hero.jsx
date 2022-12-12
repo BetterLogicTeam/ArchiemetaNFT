@@ -40,7 +40,7 @@ function Hero() {
 
             <div class="col-span-6 xl:col-span-8 hero_div">
               <div className="home_maine_div">
-                <img src="Girl2.png" className="gift" alt="" />
+                <img src="Girl3.png" className="gift" alt="" />
                 {/* <img src="3D_elements.png" alt="" class="animate-fly hero2  " /> */}
               </div>
              

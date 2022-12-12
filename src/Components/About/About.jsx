@@ -11,7 +11,7 @@ function About() {
         <div class="container">
           <div class="lg:flex lg:justify-between">
           <div className="home_maine_div achaaww">
-                <img src="Girl2.png" className="gift2"  alt="" />
+                <img src="Girl3.png" className="gift2"  alt="" />
                 {/* <img src="3D_elements.png" alt="" class="animate-fly hero3  " /> */}
               </div>
             {/* <!-- Info -->
