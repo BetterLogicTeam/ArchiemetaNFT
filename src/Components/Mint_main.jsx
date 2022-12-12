@@ -48,7 +48,7 @@ function Mint_main() {
 
   const myMintBNB = async () => {
     let acc = await loadWeb3();
-    // console.log("ACC=",acc)
+
     if (acc == "No Wallet") {
       toast.error("No Wallet Connected")
     }
