@@ -6,6 +6,7 @@ import axios from "axios";
 import { toast } from "react-toastify";
 import Modal from "react-bootstrap/Modal";
 import Form from 'react-bootstrap/Form';
+import web3 from "web3";
 function Mint_main() {
   // let [btnOne, setButtonOne] = useState("Mint With BNB");
   let [value, setValue] = useState(1);
@@ -98,21 +99,12 @@ function Mint_main() {
 
 
   const getMydata = async () => {
-    const web3 = window.web3;
-
-    let nftContractOf = new web3.eth.Contract(wireNftContractAbi, wireNftContractAddress);
-
-    let mintingbnbPrice = await nftContractOf.methods.minting_price().call()
-    // console.log('fraz', mintingbnbPrice)
 
 
-    mintingbnbPrice = web3.utils.fromWei(mintingbnbPrice);
-    mintingbnbPrice = parseFloat(mintingbnbPrice)
-    setMintPriceBnb(mintingbnbPrice)
 
-    // alert(mintingbnbPrice)
 
     let acc = await loadWeb3();
+    // alert(acc)
     // console.log("ACC=",acc)
     if (acc == "No Wallet") {
       toast.error("No Wallet Connected")
@@ -135,7 +127,7 @@ function Mint_main() {
         mintingWirePrice = parseFloat(mintingWirePrice)
         setmintPriceWire(mintingWirePrice);
 
-        // let mintingbnbPrice = await nftContractOf.methods.MinitngPricein_MATIC().call()
+        // let mintingbnbPrice = await nftContractOf.methods.minting_price().call()
         // mintingbnbPrice = web3.utils.fromWei(mintingbnbPrice);
         // mintingbnbPrice = parseFloat(mintingbnbPrice)
 
@@ -161,9 +153,23 @@ function Mint_main() {
       toast.error("user is not exsist")
     }
   }
+  const getmintpricebnb = async () => {
+    const web3 = window.web3;
+    let nftContractOf = new web3.eth.Contract(wireNftContractAbi, wireNftContractAddress);
+
+
+    let mintingbnbPrice = await nftContractOf.methods.minting_price().call()
+    mintingbnbPrice = web3.utils.fromWei(mintingbnbPrice);
+    mintingbnbPrice = parseFloat(mintingbnbPrice)
+
+    setMintPriceBnb(mintingbnbPrice)
+  }
   useEffect(() => {
     getMydata();
   }, []);
+  useEffect(() => {
+    getmintpricebnb()
+  }, [])
 
   return (
     <div>
