@@ -36,6 +36,7 @@ a:hover {
   width: 13rem;
 }
 
+
 /* .nev{
     width: 50%;
     padding-top: 1rem;
@@ -43,7 +44,7 @@ a:hover {
 } */
 
 .alna {
-  margin-left: 6rem;
+  /* margin-left: 5rem; */
   /* float: right; */
 }
 
@@ -51,8 +52,11 @@ a:hover {
   margin-right: 10px;
   font-weight: bold;
   font-size: 14px;
-  /* color: black; */
+  color: #fff !important;
   font-family: 'DM Sans', sans-serif;
+}
+.apna{
+  color: #fff !important;
 }
 
 .dark .dark\:fill-white {

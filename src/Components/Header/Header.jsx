@@ -32,11 +32,7 @@ function Header() {
       let myAcc =
         acc?.substring(0, 4) + "..." + acc?.substring(acc?.length - 4);
       setBtTxt(myAcc);
-      const web3 = window.web3;
-      let wire_contract_instance = new web3.eth.Contract(
-        wireNftContractAbi,
-        wireNftContractAddress
-      );
+
     }
   }
 
@@ -65,51 +61,73 @@ function Header() {
 
   useEffect(() => {
     document.body.className = theme;
-  }, [theme])
+  }, [theme]);
+
+  const [menuOpen, setMenuOpen] = useState(false)
+  const toggleMenu = () => {
+    setMenuOpen(!menuOpen)
+  }
+
+  const handleClose = () => setMenuOpen(false)
 
   return (
 
     <div>
-      <Navbar className='nav_main' collapseOnSelect expand="lg" >
+
+
+
+      <Navbar collapseOnSelect expand="lg" className='nav_main pt-3' >
         <Container>
-          <Navbar.Brand href="#home"><Link to="/"><img className='nev' src='white.png'></img></Link></Navbar.Brand>
+          <Navbar.Brand ><Link to="/">
+            <img className='nevImg ' src='white.png' width="50%" /></Link></Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
-
-            <Nav className='alna'>
-              <Nav.Link className='hxn' href="#Home">
-                <Link to="/" className='apna'>Home</Link>
-              </Nav.Link>
-              <Nav.Link className='hxn' href="#Mint">
-                <Link to="/About_main" className='apna'>About Us</Link>
-              </Nav.Link>
-              <Nav.Link className='hxn' href="#Collection">
-                <Link to="/Collection_main" className='apna'>Collection</Link>
-              </Nav.Link>
-              <Nav.Link className='hxn' href="#Benifits">
-                <Link to="/Benifits_main" className='apna'>Clubs</Link>
-              </Nav.Link>
-              <Nav.Link className='hxn' href="#Benifits">
-                <Link to="/Income" className='apna'>Passive Income</Link>
-              </Nav.Link>
-              <Nav.Link className='hxn' href="#Attributes">
-                <Link to="/Attributes_main" className='apna'>Attributes</Link>
-              </Nav.Link>
-              <Nav.Link className='hxn' href="#Roadmap">
-                <Link to="/Roadmap_main" className='apna'>Roadmap</Link>
-              </Nav.Link>
-
-              <Nav.Link className='hxn' href="#Mint">
-                <Link to="/Mint_main" className='apna'>Mint</Link>
-              </Nav.Link>
-
-              <Nav.Link className='hxn' href="">
-                <Link to="/Mint_main" className="link_text" ><button className="btn btna_navbar_here" onClick={Connect}>{btnTxt}</button></Link>
-              </Nav.Link>
-
-              {/* <a href="#" className='btn tggl' onClick={() => toggleTheme()}>
-           {iaDark?<><span className="fs-4" >☀</span></>:<><span className="fs-4">☾</span></>}    
-            </a> */}
+            <Nav className="ms-auto">
+              <Link to="/" className='apna text-white'>
+                <Nav.Link className='hxn' href='/'  >
+                  Home
+                </Nav.Link>
+              </Link>
+              <Link to="/About_main" className='apna text-white'>
+                <Nav.Link className='hxn' href='/About_main' >
+                  About Us
+                </Nav.Link>
+              </Link>
+              <Link to="/Collection_main" className='apna text-white'>
+                <Nav.Link className='hxn' href='/Collection_main'  >
+                  Collection
+                </Nav.Link>
+              </Link>
+              <Link to="/Benifits_main" className='apna text-white'>
+                <Nav.Link className='hxn' href='/Benifits_main' >
+                  Clubs
+                </Nav.Link>
+              </Link>
+              <Link to="/Income" className='apna text-white'>
+                <Nav.Link className='hxn' href='/Income'  >
+                  Passive Income
+                </Nav.Link>
+              </Link>
+              <Link to="/Attributes_main" className='apna text-white'>
+                <Nav.Link className='hxn' href='/Attributes_main'  >
+                  Attributes
+                </Nav.Link>
+              </Link>
+              <Link to="/Roadmap_main" className='apna text-white'>
+                <Nav.Link className='hxn' href='/Roadmap_main' >
+                  Roadmap
+                </Nav.Link>
+              </Link>
+              <Link to="/Mint_main" className='apna text-white'>
+                <Nav.Link className='hxn' href='Mint'  >
+                  Mint
+                </Nav.Link>
+              </Link>
+              <Link to="/Mint_main" className="link_text" >
+                <Nav.Link className='hxn' href='/Mint_main' >
+                  <button className="btn btna_navbar_here" onClick={Connect}>{btnTxt}</button>
+                </Nav.Link>
+              </Link>
             </Nav>
           </Navbar.Collapse>
         </Container>

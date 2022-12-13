@@ -16,14 +16,14 @@
 }
 
 .hero h1 {
-  text-align: left !important;
+  text-align: left;
   font-family: 'cal-sans-semibold', sans-serif;
   font-weight: inherit;
   color: white;
 }
 
 .hero p {
-  text-align: left !important;
+  text-align: left;
   color: white !important;
   --tw-text-opacity: 1;
 }
@@ -39,6 +39,23 @@
 
 .emg {
   margin-top: -10px;
+}
+
+@media screen and (max-width:600px) {
+
+  .hero {
+    text-align: center !important;
+  }
+
+  .hero p {
+    text-align: center;
+
+  }
+
+  .hero h1 {
+    text-align: center;
+    
+  }
 }
 
 /* 
@@ -84,12 +101,14 @@
   align-items: center !important;
 }
 
-.home_maine_div img{
+.home_maine_div img {
   width: 350px;
 }
+
 .gift {
   z-index: 0 !important;
 }
+
 .hero2 {
   position: absolute;
   z-index: 1;
@@ -98,22 +117,22 @@
 
 
 @media (min-width:601px) and (max-width:768px) {
-    
-    .gift{
-        width: 300px !important;
-    }
 
-    .hero2{
-        width: 400px !important;
-    }
+  .gift {
+    width: 300px !important;
   }
 
-@media (min-width: 769px) and (max-width:1024px) {
-  .gift{
+  .hero2 {
     width: 400px !important;
+  }
 }
 
-.hero2{
+@media (min-width: 769px) and (max-width:1024px) {
+  .gift {
+    width: 400px !important;
+  }
+
+  .hero2 {
     width: 500px !important;
-}
+  }
 }

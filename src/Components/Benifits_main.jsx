@@ -6,7 +6,7 @@ function Benifits_main() {
     <div>
         <main class="pt-[5.5rem] lg:pt-24 bnnr">
       {/* <!-- Banner --> */}
-      <section class="relative bnnr">
+      <section class="relative bnnr" style={{paddingTop: "50px"}}>
         {/* <picture class="pointer-events-none absolute inset-0 -z-10 dark:hidden">
             <img src="banner.jpg" alt="gradient" class="h-full w-full"/>
         </picture> */}

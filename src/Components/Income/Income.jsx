@@ -5,7 +5,7 @@ function Income() {
   return (
     <div className='income_main '>
         <div className="container">
-            <div className="row">
+            <div className="row text-center">
                 <div className="col-md-6">
                     <div className="hadding">
                         <h1>Passive Income<br></br> ArchieMeta NFT</h1>

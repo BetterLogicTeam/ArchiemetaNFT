@@ -39,6 +39,9 @@
     .pt-32{
         padding-top: 0 !important;
     }
+    .About_Heading_1{
+        text-align: center;
+    }
   }
 
   @media (min-width:601px) and (max-width:800px) {
