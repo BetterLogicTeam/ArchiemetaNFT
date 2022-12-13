@@ -127,5 +127,9 @@ color: #b93ca2 !important;
 }
 
 .grey a{
-  color: grey !important;
+  color: white !important;
+}
+
+.lightee{
+  color: white !important;
 }

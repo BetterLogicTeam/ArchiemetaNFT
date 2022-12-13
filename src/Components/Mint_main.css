@@ -6,8 +6,40 @@
         align-items: center !important;
     }
 
+    .mint_one{
+        display: flex;
+        justify-content: center;
+    }
+
     .lsc h1 {
         font-size: 20px !important;
+    }
+
+    .price_eth h1{
+        display: flex;
+        text-align: center !important;
+        justify-content: center;
+    }
+
+    .mint_girl{
+        display: flex;
+        justify-content: center;
+    }
+}
+
+.mint_girl{
+    display: flex;
+    justify-content: center;
+}
+
+@media (min-width:800px) and (max-width:1024px) {
+    .flexxx{
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .flexxx h1{
+        justify-content: center;
     }
 }
 
@@ -34,6 +66,8 @@
     color: white;
     font-size: 18px;
 }
+
+
 
 .mint_in {
     display: flex;

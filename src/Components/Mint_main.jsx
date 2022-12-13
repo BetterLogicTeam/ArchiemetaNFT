@@ -178,19 +178,19 @@ function Mint_main() {
 
   return (
     <div>
-      <section class="relative mint_main lg:py-24" style={{ paddingTop: "130px" }}>
-        <picture class="pointer-events-none absolute inset-0 -z-10 dark:hidden">
-          {/* <img src="gradient_light.jpg" alt="gradient" class="h-full" /> */}
+      <section className="relative mint_main lg:py-24" style={{ paddingTop: "130px" }}>
+        <picture className="pointer-events-none absolute inset-0 -z-10 dark:hidden">
+          {/* <img src="gradient_light.jpg" alt="gradient" className="h-full" /> */}
         </picture>
-        <div class="container">
+        <div className="container">
           {/* <!-- Item --> */}
-          <div class="md:flex md:flex-wrap">
+          <div className="md:flex ">
             {/* <!-- Image --> */}
-            <figure class="mb-8 md:w-2/5 md:flex-shrink-0 md:flex-grow-0 md:basis-auto lg:w-1/2">
+            <figure className="mb-8 mint_girl md:w-3/5 md:flex-shrink-0 md:flex-grow-0 md:basis-auto lg:w-1/2">
               <img
                 src="Girl3.png"
                 alt="item"
-                class="rounded-2.5xl cursor-pointer"
+                className="rounded-2.5xl cursor-pointer"
                 data-bs-toggle="modal"
                 data-bs-target="#imageModal"
                 width="50%"
@@ -198,13 +198,13 @@ function Mint_main() {
 
               {/* <!-- Modal --> */}
               <div
-                class="modal fade"
+                className="modal fade"
                 id="imageModal"
                 tabindex="-1"
                 aria-labelledby="buyNowModalLabel"
                 aria-hidden="true"
               >
-                <div class="modal-dialog !my-0 flex h-full items-center justify-center p-4">
+                <div className="modal-dialog !my-0 flex h-full items-center justify-center p-4">
                   <img
                     src="assets/img/hero/item-11.png"
                     alt="item"
@@ -214,7 +214,7 @@ function Mint_main() {
 
                 <button
                   type="button"
-                  class="btn-close absolute top-6 right-6"
+                  className="btn-close absolute top-6 right-6"
                   data-bs-dismiss="modal"
                   aria-label="Close"
                 >
@@ -223,7 +223,7 @@ function Mint_main() {
                     viewBox="0 0 24 24"
                     width="24"
                     height="24"
-                    class="h-6 w-6 fill-white"
+                    className="h-6 w-6 fill-white"
                   >
                     <path fill="none" d="M0 0h24v24H0z"></path>
                     <path d="M12 10.586l4.95-4.95 1.414 1.414-4.95 4.95 4.95 4.95-1.414 1.414-4.95-4.95-4.95 4.95-1.414-1.414 4.95-4.95-4.95-4.95L7.05 5.636z"></path>
@@ -234,18 +234,18 @@ function Mint_main() {
             </figure>
 
             {/* <!-- Details --> */}
-            <div class="md:w-3/5 md:basis-auto md:pl-8 lg:w-1/2 lg:pl-[3.75rem]">
-              <h1 class="font-display text-jacarta-700 mb-4 text-4xl font-semibold text-white">
+            <div className="md:w-3/5 md:basis-auto md:pl-8 lg:w-1/2 lg:pl-[3.75rem]">
+              <h1 className="font-display mint_one text-jacarta-700 mb-4 text-4xl font-semibold text-white">
                 MINT
               </h1>
 
-              <div class="mb-8 mint_in items-center space-x-4 whitespace-nowrap">
+              <div className="mb-8 mint_in items-center space-x-4 whitespace-nowrap">
                 <div className="btn mint_bttn plus" onClick={() => decreaseValue()}>
                   -
                 </div>{" "}
-                <div class="">
+                <div className="">
                   <input
-                    class="count-form"
+                    className="count-form"
                     type="text"
                     id="qa"
                     // value="1"
@@ -259,14 +259,14 @@ function Mint_main() {
               </div>
               {/* <!-- Creator / Owner --> */}
 
-              <div className="d-lg-flex mt-5">
-                <div class="mr-8  mint_bbbb2 ms-5 ms-md-0 ">
-                  <figure class="mr-4 shrink-0 bttn">
+              <div className="d-lg-flex flexxx mt-5">
+                <div className="mr-8  mint_bbbb2 ms-5 ms-md-0 ">
+                  <figure className="mr-4 shrink-0 bttn">
                     <a
                       href="#"
                       data-bs-toggle="modal"
                       data-bs-target="#placeBidModal"
-                      class="bg-accent shadow-accent-volume hover:bg-accent-dark inline-block w-full 
+                      className="bg-accent shadow-accent-volume hover:bg-accent-dark inline-block w-full 
                     rounded-full py-3 px-8 text-center font-semibold text-white transition-all"
                       onClick={() => myMintBNB()}
                     >
@@ -276,9 +276,9 @@ function Mint_main() {
 
                 </div>
                 <div>
-                  <div class="token_price">
-                    <a href="user.html" class="text-accent">
-                      <p class="text-sm font-bold">
+                  <div className="token_price">
+                    <a href="user.html" className="text-accent">
+                      <p className="text-sm font-bold">
                         <h1 style={{ fontSize: "28px" }}>
 
                           {/* Price : {mintPriceBnb} BNB */}
@@ -286,12 +286,12 @@ function Mint_main() {
                       </p>
                     </a>
                   </div>
-                  <div class="  mint_bbbb ">
+                  <div className="  mint_bbbb ">
 
 
-                    <div class="">
-                      <a href="user.html" class="text-accent ">
-                        <p class="text-sm font-bold">
+                    <div className="">
+                      <a href="user.html" className="text-accent ">
+                        <p className="text-sm price_eth font-bold">
                           <h1 style={{ fontSize: "28px", color: "white" }}>
                             {/* {mintingtokenPrice} */}
                             Price : {mintPriceBnb} ETH
@@ -308,13 +308,13 @@ function Mint_main() {
 
 
               {/* <div className="d-lg-flex mt-5">
-                <div class="mr-8  mint_bbbb2 ms-5 ms-md-0 ">
-                  <figure class="mr-4 shrink-0 bttn">
+                <div className="mr-8  mint_bbbb2 ms-5 ms-md-0 ">
+                  <figure className="mr-4 shrink-0 bttn">
                     <a
                       href="#"
                       data-bs-toggle="modal"
                       data-bs-target="#placeBidModal"
-                      class="bg-accent shadow-accent-volume hover:bg-accent-dark inline-block w-full 
+                      className="bg-accent shadow-accent-volume hover:bg-accent-dark inline-block w-full 
                     rounded-full py-3 px-8 text-center font-semibold text-white transition-all"
                     onClick={() => myMintWire()}
                     >
@@ -324,9 +324,9 @@ function Mint_main() {
 
                 </div>
                 <div>
-                  <div class="token_price">
-                    <a href="user.html" class="text-accent">
-                      <p class="text-sm font-bold">
+                  <div className="token_price">
+                    <a href="user.html" className="text-accent">
+                      <p className="text-sm font-bold">
                         <h1 style={{ fontSize: "28px" }}>
                          
                           
@@ -334,12 +334,12 @@ function Mint_main() {
                       </p>
                     </a>
                   </div>
-                  <div class="  mint_bbbb ">
+                  <div className="  mint_bbbb ">
 
 
-                    <div class="">
-                      <a href="user.html" class="text-accent ">
-                        <p class="text-sm font-bold">
+                    <div className="">
+                      <a href="user.html" className="text-accent ">
+                        <p className="text-sm font-bold">
                           <h1 style={{ fontSize: "28px" }}>
                             
                             Price :{mintPriceWire} JTO
@@ -356,31 +356,31 @@ function Mint_main() {
               {/* <!-- Creator / Owner --> */}
 
 
-              {/* <div class="mb-8 flex flex-wrap">
-                <div class="mr-8 mb-4 flex">
-                  <figure class="mr-4 shrink-0">
+              {/* <div className="mb-8 flex flex-wrap">
+                <div className="mr-8 mb-4 flex">
+                  <figure className="mr-4 shrink-0">
                     <a href="#" data-bs-toggle="modal" data-bs-target="#placeBidModal" 
-                    class="bg-accent shadow-accent-volume hover:bg-accent-dark inline-block w-full 
+                    className="bg-accent shadow-accent-volume hover:bg-accent-dark inline-block w-full 
                     rounded-full py-3 px-8 text-center font-semibold text-white transition-all">Mint With JTO</a>
                   </figure>
-                  <div class="flex flex-col justify-center">
-                     <a href="user.html" class="text-accent block">
-                      <span class="text-sm font-bold"><h1 style={{fontSize:"28px"}}> {mintingtokenPrice} Jutto Token</h1></span>
+                  <div className="flex flex-col justify-center">
+                     <a href="user.html" className="text-accent block">
+                      <span className="text-sm font-bold"><h1 style={{fontSize:"28px"}}> {mintingtokenPrice} Jutto Token</h1></span>
                     </a>
                   </div>
                 </div>
              </div> */}
               {/* <!-- Creator / Owner --> */}
-              {/* <div class="mb-8 flex flex-wrap">
-                <div class="mr-8 mb-4 flex">
-                  <figure class="mr-4 shrink-0">
+              {/* <div className="mb-8 flex flex-wrap">
+                <div className="mr-8 mb-4 flex">
+                  <figure className="mr-4 shrink-0">
                     <a href="#" data-bs-toggle="modal" data-bs-target="#placeBidModal" 
-                    class="bg-accent shadow-accent-volume hover:bg-accent-dark inline-block w-full 
+                    className="bg-accent shadow-accent-volume hover:bg-accent-dark inline-block w-full 
                     rounded-full py-3 px-8 text-center font-semibold text-white transition-all">Mint With Busd</a>
                   </figure>
-                  <div class="flex flex-col justify-center">
-                     <a href="user.html" class="text-accent block">
-                      <span class="text-sm font-bold"><h1 style={{fontSize:"28px"}}>Price : 0 Busd</h1></span>
+                  <div className="flex flex-col justify-center">
+                     <a href="user.html" className="text-accent block">
+                      <span className="text-sm font-bold"><h1 style={{fontSize:"28px"}}>Price : 0 Busd</h1></span>
                     </a>
                   </div>
                 </div>
