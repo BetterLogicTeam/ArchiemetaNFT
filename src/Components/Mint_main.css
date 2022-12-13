@@ -90,6 +90,14 @@
         align-items: center;
         text-align: center;
     }
+
+    
+}
+
+@media screen and (max-width:600px) {
+    .mint_in{
+        justify-content: center;
+    }
 }
 
 .count-form {
