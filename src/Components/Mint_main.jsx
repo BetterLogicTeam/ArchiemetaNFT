@@ -10,12 +10,9 @@ import Form from 'react-bootstrap/Form';
 import Web3 from "web3";
 const webSupply = new Web3("https://rpc.ankr.com/eth")
 function Mint_main() {
-  // let [btnOne, setButtonOne] = useState("Mint With BNB");
+
   let [value, setValue] = useState(1);
-  // let [mintPriceBnb, setMintPriceBnb] = useState(0);
-  let [mintingtokenPrice, setMintingtokenPrice] = useState(0);
   const [userid, setuserid] = useState()
-  let [mintPriceWire, setmintPriceWire] = useState(0);
   let [mintPriceBnb, setMintPriceBnb] = useState(0);
   let [btnOne, setButtonOne] = useState("Mint With ETH");
 
@@ -45,130 +42,54 @@ function Mint_main() {
 
 
 
-  const myMintBNB = async () => {
 
+
+  const myMintBNB = async () => {
     let acc = await loadWeb3();
-    // console.log("ACC=",acc)
+
     if (acc == "No Wallet") {
       toast.error("No Wallet Connected")
     }
     else if (acc == "Wrong Network") {
-      toast.error("Wrong Newtwork please connect to test net")
-    } else {
+      toast.error("Wrong Newtwork please connect to Ethereum")
+    }
+    else {
       try {
-
-
-
-
         setButtonOne("Please Wait While Processing")
-        // console.log("mintFor BNB");
         const web3 = window.web3;
         let nftContractOf = new web3.eth.Contract(wireNftContractAbi, wireNftContractAddress);
+        let mintingarcPrice = await nftContractOf.methods.minting_price().call()
+
+        // console.log("mintForB",nftContractOf.methods);
+        mintingarcPrice = webSupply.utils.fromWei(mintingarcPrice);
+
+        setMintPriceBnb(mintingarcPrice)
+        let totalMintingPriceARC = value * mintingarcPrice
+
+        // console.log("mintingbnbPrice", totalMintingPriceARC);
+        let payableAmount = webSupply.utils.toWei(totalMintingPriceARC.toString())
+        // console.log("payableAmount", payableAmount);
+        // alert(payableAmount)
 
 
+        await nftContractOf.methods.mint(value).send({
+          from: acc,
+          value: payableAmount.toString()
 
+        })
+        toast.success("Transaction Confirmed")
+        setButtonOne("Mint With ETH")
 
-        let paused = await nftContractOf.methods.paused().call();
-        // let maxLimitprTransaction = await nftContractOf.methods.MaxLimitPerTransaction().call();
-        let mintingbnbPrice = await nftContractOf.methods.minting_price().call()
-
-        mintingbnbPrice = parseFloat(mintingbnbPrice)
-
-        let totalMintingPriceBNB = value * mintingbnbPrice
-
-        // let payableAmount = webSupply.utils.toWei(totalMintingPriceBNB.toString())
-
-
-        if (paused !== false) {
-
-
-          let hash = await nftContractOf.methods.mint(value).send({
-            from: acc,
-            value: totalMintingPriceBNB.toString()
-
-          })
-          setButtonOne("Mint With BNB")
-
-          toast.success("Transaction Confirmed")
-
-
-          setinputdatahere(" ")
-
-
-
-        } else {
-          toast.error("No of Minting is Greater than maximum limit Per Transaction")
-          setButtonOne("Mint With BNB")
-
-        }
-
-
-
-
-
-
-
-
-
-      } catch (e) {
-        setinputdatahere(" ")
-        console.log("Error", e);
-        setButtonOne("Mint With BNB")
-
+      }
+      catch (e) {
+        console.log("Error while minting ", e)
+        toast.error("Transaction failed")
+        setButtonOne("Mint With ETH")
 
       }
 
     }
   }
-
-
-
-  // const myMintBNB = async () => {
-  //   let acc = await loadWeb3();
-
-  //   if (acc == "No Wallet") {
-  //     toast.error("No Wallet Connected")
-  //   }
-  //   else if (acc == "Wrong Network") {
-  //     toast.error("Wrong Newtwork please connect to Ethereum")
-  //   }
-  //   else {
-  //     try {
-  //       setButtonOne("Please Wait While Processing")
-  //       const web3 = window.web3;
-  //       let nftContractOf = new web3.eth.Contract(wireNftContractAbi, wireNftContractAddress);
-  //       let mintingarcPrice = await nftContractOf.methods.minting_price().call()
-
-  //       // console.log("mintForB",nftContractOf.methods);
-  //       mintingarcPrice = webSupply.utils.fromWei(mintingarcPrice);
-
-  //       setMintPriceBnb(mintingarcPrice)
-  //       let totalMintingPriceARC = value * mintingarcPrice
-
-  //       // console.log("mintingbnbPrice", totalMintingPriceARC);
-  //       let payableAmount = webSupply.utils.toWei(totalMintingPriceARC.toString())
-  //       // console.log("payableAmount", payableAmount);
-  //       // alert(payableAmount)
-
-
-  //       await nftContractOf.methods.mint(value).send({
-  //         from: acc,
-  //         value: payableAmount.toString()
-
-  //       })
-  //       toast.success("Transaction Confirmed")
-  //       setButtonOne("Mint With ETH")
-
-  //     }
-  //     catch (e) {
-  //       console.log("Error while minting ", e)
-  //       toast.error("Transaction failed")
-  //       setButtonOne("Mint With ETH")
-
-  //     }
-
-  //   }
-  // }
 
 
 

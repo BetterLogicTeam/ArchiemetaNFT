@@ -45,7 +45,7 @@ function Carde() {
               </h3>
               <p className='para_graph text-left'>Between 11 - 25 ArchieMeta NFTs in your wallet</p>
 
-              <h5>Benefits:</h5>
+              <h5>Benefits</h5>
               <p className='para_graph text-left'>1.   FREE Admittance to ArchieMeta for LIFETIME</p>
               <p className='para_graph text-left'>2.  Additional Tokens to experience Archie Metaverse.</p>
             </div>
@@ -77,7 +77,7 @@ function Carde() {
               </h3>
               <p className='para_graph text-left'>Between 51 - 75  ArchieMeta NFTs in your wallet</p>
 
-              <h5>Benefits:</h5>
+              <h5>Benefits</h5>
 
               <p className='para_graph text-left'>1.  FREE Admittance to ArchieMeta for LIFETIME</p>
               <p className='para_graph text-left'>2.  Limited Access to VIP area of Casinos & Night Clubs once a month</p>
@@ -101,7 +101,7 @@ function Carde() {
                   High Rollers Club
                 </h3>
                 <p className='para_graph text-left'>Between 76 - 100 ArchieMeta Nfts in your wallet</p>
-                <h5>Benefits:</h5>
+                <h5>Benefits</h5>
 
                 <p className='para_graph text-left'>1.  FREE Admittance to ArchieMeta for LIFETIME</p>
                 <p className='para_graph text-left'>2.  Limited Access to VIP area of Casinos & Night Clubs once a month</p>
@@ -121,7 +121,7 @@ function Carde() {
                   Meta Master Club
                 </h3>
                 <p className='para_graph text-left'>Between 101 - 250 ArchieMeta NFTs in your wallet</p>
-                <h5>Benefits:</h5>
+                <h5>Benefits</h5>
 
                 <p className='para_graph text-left'>1.  FREE Admittance to ArchieMeta for LIFETIME</p>
                 <p className='para_graph text-left'>2.  FREE Access to VIP area of Casinos & Night Clubs once a month</p>
@@ -141,7 +141,7 @@ function Carde() {
                   Archie Executive Club
                 </h3>
                 <p className='para_graph text-left'>Over 251 ArchieMeta NFTs in your wallet</p>
-                <h5>Benefits:</h5>
+                <h5>Benefits</h5>
 
                 <p className='para_graph text-left'>1.  FREE Admittance to ArchieMeta for LIFETIME</p>
                 <p className='para_graph text-left'>2.  FREE Access to VIP area of Casinos & Night Clubs once a month</p>
