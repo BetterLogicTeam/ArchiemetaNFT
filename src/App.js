@@ -34,7 +34,6 @@ function App() {
       <Routes>
       <Route exact path="/" element={<Index_main />} />
       <Route exact path="/About_main" element={<About_main/>} />
-
       <Route exact path="/Collection_main" element={<Collection_main />} />
       <Route exact path="/Benifits_main" element={<Benifits_main />} />
       <Route exact path="/Attributes_main" element={<Attributes_main />} />
@@ -44,13 +43,6 @@ function App() {
       </Routes>
       <Footer />
       </BrowserRouter>
-    {/* <Header />
-     <Hero />
-     <About />
-     <Bring />
-     <Carde />
-     <Sell />
-     <Footer /> */}
     </div>
   );
 }

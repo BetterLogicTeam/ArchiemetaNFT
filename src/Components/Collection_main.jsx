@@ -21,17 +21,19 @@ function Collection_main() {
       let wallet_Length = WalletOwnOf.length
       console.log("collection", WalletOwnOf);
       let Wallet_URI
-      for (let i = 1; i < 5; i++) {
+      for (let i = 1; i < wallet_Length; i++) {
         console.log("WalletOwnOf", i);
-        // let ArryData = WalletOwnOf[i]
-        Wallet_URI = await axios.get(`https://gateway.pinata.cloud/ipfs/QmVfeNmNzjMyWcwnVMfdLLkNGswZnsqQ8ut7zDd1aD8rCY/${i}.png`);
-        console.log("Image", Wallet_URI.config.url);
+        let ArryData = WalletOwnOf[i]
+        // let ArryData = i
+
+        Wallet_URI = await axios.get(`https://teal-high-elephant-254.mypinata.cloud/ipfs/QmRN9mG46UtACjCmtwjnqz2pmDei2tUP6zB23NpFw8wk8C/${WalletOwnOf[i]}.png`);
+       
 
 
         let Image_Url = Wallet_URI.config.url
         // let NFT_Name = res.data.title
 
-        Data_Array = [...Data_Array, { Url: Image_Url, address: acc }]
+        Data_Array = [...Data_Array, { Url: Image_Url, address: acc,ArryData:ArryData }]
         setArray_NFT(Data_Array)
       }
       // console.log("Wallet_URI", Wallet_URI);
@@ -61,11 +63,38 @@ function Collection_main() {
             <div class="mx-auto max-w-2xl py-16 text-center">
               <h1 class="font-display text-jacarta-700 mb-8 text-4xl font-medium dark:text-white banner_p" style={{ color: "#fff" }}>ArchieMeta NFT  </h1>
               <p class="dark:text-jacarta-300 text-lg leading-normal banner_p" style={{ color: "#fff" }}>
-                An Exclusive Avatar Collection<br/>
+                An Exclusive Avatar Collection<br />
               </p>
             </div>
           </div>
         </section>
+        <div className="container">
+        <div class="grid gap-8 md:grid-cols-4" >
+          {
+            Array_NFT.map((items, idex) => {
+       
+              let index = idex + 1;
+              return (
+                <>
+                  <div class="dark:bg-jacarta-800 rounded-2.5xl  p-2 text-center transition-shadow hover:shadow-xl" style={{backgroundColor:"#7c2f6e"}} >
+                    <h3 class="font-display   " >
+                      <img src={items.Url} alt="img" style={{borderRadius:"15px"}} />
+
+                    </h3>
+
+                  <p className='text-white'>  Token ID : {items.ArryData}</p>
+
+                  </div>
+                </>)
+            }
+            )}
+
+
+
+        </div>
+        </div>
+
+        
         {/* <!-- end banner -->  */}
         {/* <!-- Process / Newsletter --> */}
         {/* <section class="dark:bg-jacarta-800 colct_main relative py-24">
