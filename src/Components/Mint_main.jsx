@@ -6,7 +6,9 @@ import axios from "axios";
 import { toast } from "react-toastify";
 import Modal from "react-bootstrap/Modal";
 import Form from 'react-bootstrap/Form';
-import web3 from "web3";
+// import web3 from "web3";
+import Web3 from "web3";
+const webSupply = new Web3("https://rpc.ankr.com/eth")
 function Mint_main() {
   // let [btnOne, setButtonOne] = useState("Mint With BNB");
   let [value, setValue] = useState(1);
@@ -60,7 +62,7 @@ function Mint_main() {
       try {
         setButtonOne("Please Wait While Processing")
         console.log("mintFor BNB");
-        const web3 = window.web3;
+        const web3 = webSupply;
         let nftContractOf = new web3.eth.Contract(wireNftContractAbi, wireNftContractAddress);
         let mintingarcPrice = await nftContractOf.methods.minting_price().call()
         mintingarcPrice = web3.utils.fromWei(mintingarcPrice);
@@ -98,45 +100,45 @@ function Mint_main() {
 
 
 
-  const getMydata = async () => {
+  // const getMydata = async () => {
 
 
 
 
-    let acc = await loadWeb3();
-    // alert(acc)
-    // console.log("ACC=",acc)
-    if (acc == "No Wallet") {
-      toast.error("No Wallet Connected")
-    }
-    else if (acc == "Wrong Network") {
-      toast.error("Wrong Newtwork please connect to test net")
-    } else {
+  //   let acc = await loadWeb3();
+  //   // alert(acc)
+  //   // console.log("ACC=",acc)
+  //   if (acc == "No Wallet") {
+  //     toast.error("No Wallet Connected")
+  //   }
+  //   else if (acc == "Wrong Network") {
+  //     toast.error("Wrong Newtwork please connect to test net")
+  //   } else {
 
-      try {
-        console.log("mintFor BUSD");
-        const web3 = window.web3;
-        let nftContractOf = new web3.eth.Contract(wireNftContractAbi, wireNftContractAddress);
-        // let mintingBusdPrice = await nftContractOf.methods.MinitngPricein_BUSD().call()
-        // mintingBusdPrice = web3.utils.fromWei(mintingBusdPrice);
-        // mintingBusdPrice = parseFloat(mintingBusdPrice)
-        // setMintPriceBUSD(mintingBusdPrice)
+  //     try {
+  //       console.log("mintFor BUSD");
+  //       const web3 = window.web3;
+  //       let nftContractOf = new web3.eth.Contract(wireNftContractAbi, wireNftContractAddress);
+  //       // let mintingBusdPrice = await nftContractOf.methods.MinitngPricein_BUSD().call()
+  //       // mintingBusdPrice = web3.utils.fromWei(mintingBusdPrice);
+  //       // mintingBusdPrice = parseFloat(mintingBusdPrice)
+  //       // setMintPriceBUSD(mintingBusdPrice)
 
-        let mintingWirePrice = await nftContractOf.methods.MinitngPricein_MMX().call()
-        mintingWirePrice = web3.utils.fromWei(mintingWirePrice);
-        mintingWirePrice = parseFloat(mintingWirePrice)
-        setmintPriceWire(mintingWirePrice);
+  //       let mintingWirePrice = await nftContractOf.methods.MinitngPricein_MMX().call()
+  //       mintingWirePrice = web3.utils.fromWei(mintingWirePrice);
+  //       mintingWirePrice = parseFloat(mintingWirePrice)
+  //       setmintPriceWire(mintingWirePrice);
 
-        // let mintingbnbPrice = await nftContractOf.methods.minting_price().call()
-        // mintingbnbPrice = web3.utils.fromWei(mintingbnbPrice);
-        // mintingbnbPrice = parseFloat(mintingbnbPrice)
+  //       // let mintingbnbPrice = await nftContractOf.methods.minting_price().call()
+  //       // mintingbnbPrice = web3.utils.fromWei(mintingbnbPrice);
+  //       // mintingbnbPrice = parseFloat(mintingbnbPrice)
 
-        // setMintPriceBnb(mintingbnbPrice)
-      } catch (e) {
-        console.log("Error while getting minting Price");
-      }
-    }
-  }
+  //       // setMintPriceBnb(mintingbnbPrice)
+  //     } catch (e) {
+  //       console.log("Error while getting minting Price");
+  //     }
+  //   }
+  // }
 
 
 
@@ -154,18 +156,21 @@ function Mint_main() {
     }
   }
   const getmintpricebnb = async () => {
-    const web3 = window.web3;
+    const web3 = webSupply;
+
     let nftContractOf = new web3.eth.Contract(wireNftContractAbi, wireNftContractAddress);
+    console.log('nftContractOf', nftContractOf)
 
 
     let mintingbnbPrice = await nftContractOf.methods.minting_price().call()
     mintingbnbPrice = web3.utils.fromWei(mintingbnbPrice);
+    console.log('mintingbnbPrice', mintingbnbPrice)
     mintingbnbPrice = parseFloat(mintingbnbPrice)
 
     setMintPriceBnb(mintingbnbPrice)
   }
   useEffect(() => {
-    getMydata();
+    // getMydata();
   }, []);
   useEffect(() => {
     getmintpricebnb()
