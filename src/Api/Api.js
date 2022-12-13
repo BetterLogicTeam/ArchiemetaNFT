@@ -2,17 +2,17 @@ import Web3 from "web3";
 let isItConnected = false;
 const networks = {
   bsc: {
-    chainId: `0x${Number(5).toString(16)}`,
-    chainName: "Goerli test network",
+    chainId: `0x${Number(1).toString(16)}`,
+    chainName: "Ethereum Mainnet",
     nativeCurrency: {
-      name: "GoerliETH",
-      symbol: "GoerliETH",
+      name: "ETH",
+      symbol: "ETH",
       decimals: 18,
     },
     rpcUrls: [
-      "https://goerli.infura.io/v3/"
+      "https://mainnet.infura.io/v3/"
     ],
-    blockExplorerUrls: ["https://goerli.etherscan.io"],
+    blockExplorerUrls: ["https://etherscan.io"],
   },
 };
 const changeNetwork = async ({ networkName }) => {
@@ -59,7 +59,7 @@ export const loadWeb3 = async () => {
       await window.web3.eth.getChainId((err, netId) => {
         // console.log("networkId==>", netId);
         switch (netId.toString()) {
-          case "5":
+          case "1":
             isItConnected = true;
             break;
           default:
