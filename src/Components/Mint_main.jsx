@@ -61,16 +61,20 @@ function Mint_main() {
     else {
       try {
         setButtonOne("Please Wait While Processing")
-        console.log("mintFor BNB");
-        const web3 = webSupply;
+        // console.log("mintFor BNB");
+        const web3 = window.web3;
         let nftContractOf = new web3.eth.Contract(wireNftContractAbi, wireNftContractAddress);
         let mintingarcPrice = await nftContractOf.methods.minting_price().call()
+
         mintingarcPrice = web3.utils.fromWei(mintingarcPrice);
+
         setMintPriceBnb(mintingarcPrice)
         let totalMintingPriceARC = value * mintingarcPrice
-        console.log("mintingbnbPrice", totalMintingPriceARC);
+
+        // console.log("mintingbnbPrice", totalMintingPriceARC);
         let payableAmount = web3.utils.toWei(totalMintingPriceARC.toString())
-        console.log("payableAmount", payableAmount);
+        // console.log("payableAmount", payableAmount);
+        // alert(payableAmount)
 
 
 
