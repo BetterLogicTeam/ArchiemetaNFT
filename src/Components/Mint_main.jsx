@@ -24,45 +24,85 @@ function Mint_main() {
   };
 
 
-  const myMintBNB = async () => {
+  // const myMintBNB = async () => {
+  //   let acc = await loadWeb3();
+
+  //   if (acc == "No Wallet") 
+  //   {
+  //     toast.error("No Wallet Connected")
+  //   }
+  //   else if (acc == "Wrong Network")
+  //   {
+  //     toast.error("Wrong Newtwork please connect to Ethereum")
+  //   }
+  //   else {
+
+  //     try {
+  //       setButtonOne("Please Wait While Processing")
+  //       const web3 = window.web3;
+  //       let nftContractOf = new web3.eth.Contract(wireNftContractAbi, wireNftContractAddress);
+  //       let mintingarcPrice = await nftContractOf.methods.minting_price().call()
+  //       mintingarcPrice = webSupply.utils.fromWei(mintingarcPrice);
+  //       setMintPriceBnb(mintingarcPrice)
+  //       let totalMintingPriceARC = value * mintingarcPrice
+  //       let payableAmount = webSupply.utils.toWei(totalMintingPriceARC.toString())
+  //       await nftContractOf.methods.mint(value).send({
+  //         from: acc,
+  //         value: payableAmount.toString()
+
+  //       })
+  //       toast.success("Transaction Confirmed")
+  //       setButtonOne("Mint With ETH")
+  //     }
+  //     catch (e) {
+  //       console.log("Error while minting ", e)
+  //       toast.error("Transaction failed")
+  //       setButtonOne("Mint With ETH")
+
+  //     }
+
+  //   }
+  // }
+
+  const mint = async () => {
+    
+
     let acc = await loadWeb3();
-
-    if (acc == "No Wallet") 
-    {
-      toast.error("No Wallet Connected")
-    }
-    else if (acc == "Wrong Network")
-    {
-      toast.error("Wrong Newtwork please connect to Ethereum")
-    }
-    else {
-
-      try {
-        setButtonOne("Please Wait While Processing")
-        const web3 = window.web3;
-        let nftContractOf = new web3.eth.Contract(wireNftContractAbi, wireNftContractAddress);
-        let mintingarcPrice = await nftContractOf.methods.minting_price().call()
-        mintingarcPrice = webSupply.utils.fromWei(mintingarcPrice);
-        setMintPriceBnb(mintingarcPrice)
-        let totalMintingPriceARC = value * mintingarcPrice
-        let payableAmount = webSupply.utils.toWei(totalMintingPriceARC.toString())
-        await nftContractOf.methods.mint(value).send({
-          from: acc,
-          value: payableAmount.toString()
-
-        })
-        toast.success("Transaction Confirmed")
-        setButtonOne("Mint With ETH")
-      }
-      catch (e) {
-        console.log("Error while minting ", e)
-        toast.error("Transaction failed")
-        setButtonOne("Mint With ETH")
-
-      }
+    if (acc == "No Wallet") {
 
     }
-  }
+    else if (acc == "Wrong Network") {
+
+    } else {
+
+        try {
+            
+
+          setButtonOne("Please Wait While Processing")
+          const web3 = window.web3;
+          let nftContractOf = new web3.eth.Contract(wireNftContractAbi, wireNftContractAddress);
+          let mintingarcPrice = await nftContractOf.methods.minting_price().call()
+          mintingarcPrice = web3.utils.fromWei(mintingarcPrice);
+          setMintPriceBnb(mintingarcPrice)
+          let totalMintingPriceARC = value * mintingarcPrice
+          let payableAmount = web3.utils.toWei(totalMintingPriceARC.toString())
+          await nftContractOf.methods.mint(value).send({
+            from: acc,
+            value: payableAmount.toString()
+  
+          })
+          toast.success("Transaction Confirmed")
+          setButtonOne("Mint With ETH")
+
+        } catch (e) {
+          console.log("Error while minting ", e)
+          toast.error("Transaction failed")
+          setButtonOne("Mint With ETH")
+        }
+        
+    }
+}
+
 
 
 
@@ -130,7 +170,7 @@ function Mint_main() {
               
               </figure>
 
-              {/* <!-- Details --> */}
+            
               <div className="md:w-3/5 md:basis-auto md:pl-8 lg:w-1/2 lg:pl-[3.75rem]">
 
 
@@ -152,7 +192,7 @@ function Mint_main() {
                     +
                   </div>
                 </div>
-                {/* <!-- Creator / Owner --> */}
+                
 
                 <div className="d-lg-flex flexxx mt-5">
                   <div className="mr-8  mint_bbbb2 ms-5 ms-md-0 ">
@@ -163,7 +203,7 @@ function Mint_main() {
                         data-bs-target="#placeBidModal"
                         className="bg-accent shadow-accent-volume hover:bg-accent-dark inline-block w-full 
                     rounded-full py-3 px-8 text-center font-semibold text-white transition-all"
-                        onClick={() => myMintBNB()}
+                        onClick={() => mint()}
                       >
                         {btnOne}
                       </a>
@@ -171,16 +211,7 @@ function Mint_main() {
 
                   </div>
                   <div>
-                    <div className="token_price">
-                      <a href="user.html" className="text-accent">
-                        <p className="text-sm font-bold">
-                          <h1 style={{ fontSize: "28px" }}>
-
-                            {/* Price : {mintPriceBnb} BNB */}
-                          </h1>
-                        </p>
-                      </a>
-                    </div>
+    
                     <div className="  mint_bbbb ">
 
 
