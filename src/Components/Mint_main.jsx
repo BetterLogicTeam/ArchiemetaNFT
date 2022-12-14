@@ -24,84 +24,46 @@ function Mint_main() {
   };
 
 
-  // const myMintBNB = async () => {
-  //   let acc = await loadWeb3();
-
-  //   if (acc == "No Wallet") 
-  //   {
-  //     toast.error("No Wallet Connected")
-  //   }
-  //   else if (acc == "Wrong Network")
-  //   {
-  //     toast.error("Wrong Newtwork please connect to Ethereum")
-  //   }
-  //   else {
-
-  //     try {
-  //       setButtonOne("Please Wait While Processing")
-  //       const web3 = window.web3;
-  //       let nftContractOf = new web3.eth.Contract(wireNftContractAbi, wireNftContractAddress);
-  //       let mintingarcPrice = await nftContractOf.methods.minting_price().call()
-  //       mintingarcPrice = webSupply.utils.fromWei(mintingarcPrice);
-  //       setMintPriceBnb(mintingarcPrice)
-  //       let totalMintingPriceARC = value * mintingarcPrice
-  //       let payableAmount = webSupply.utils.toWei(totalMintingPriceARC.toString())
-  //       await nftContractOf.methods.mint(value).send({
-  //         from: acc,
-  //         value: payableAmount.toString()
-
-  //       })
-  //       toast.success("Transaction Confirmed")
-  //       setButtonOne("Mint With ETH")
-  //     }
-  //     catch (e) {
-  //       console.log("Error while minting ", e)
-  //       toast.error("Transaction failed")
-  //       setButtonOne("Mint With ETH")
-
-  //     }
-
-  //   }
-  // }
-
-  const mint = async () => {
-    
-
+  const myMintBNB = async () => {
     let acc = await loadWeb3();
-    if (acc == "No Wallet") {
+
+    if (acc == "No Wallet") 
+    {
+      toast.error("No Wallet Connected")
+    }
+    else if (acc == "Wrong Network")
+    {
+      toast.error("Wrong Newtwork please connect to Ethereum")
+    }
+    else {
+
+      try {
+        setButtonOne("Please Wait While Processing")
+        const web3 = window.web3;
+        let nftContractOf = new web3.eth.Contract(wireNftContractAbi, wireNftContractAddress);
+        let mintingarcPrice = await nftContractOf.methods.minting_price().call()
+        mintingarcPrice = webSupply.utils.fromWei(mintingarcPrice);
+        setMintPriceBnb(mintingarcPrice)
+        let totalMintingPriceARC = value * mintingarcPrice
+        let payableAmount = webSupply.utils.toWei(totalMintingPriceARC.toString())
+        await nftContractOf.methods.mint(value).send({
+          from: acc,
+          value: payableAmount.toString()
+
+        })
+        toast.success("Transaction Confirmed")
+        setButtonOne("Mint With ETH")
+      }
+      catch (e) {
+        console.log("Error while minting ", e)
+        toast.error("Transaction failed")
+        setButtonOne("Mint With ETH")
+
+      }
 
     }
-    else if (acc == "Wrong Network") {
+  }
 
-    } else {
-
-        try {
-            
-
-          setButtonOne("Please Wait While Processing")
-          const web3 = window.web3;
-          let nftContractOf = new web3.eth.Contract(wireNftContractAbi, wireNftContractAddress);
-          let mintingarcPrice = await nftContractOf.methods.minting_price().call()
-          mintingarcPrice = web3.utils.fromWei(mintingarcPrice);
-          setMintPriceBnb(mintingarcPrice)
-          let totalMintingPriceARC = value * mintingarcPrice
-          let payableAmount = web3.utils.toWei(totalMintingPriceARC.toString())
-          await nftContractOf.methods.mint(value).send({
-            from: acc,
-            value: payableAmount.toString()
-  
-          })
-          toast.success("Transaction Confirmed")
-          setButtonOne("Mint With ETH")
-
-        } catch (e) {
-          console.log("Error while minting ", e)
-          toast.error("Transaction failed")
-          setButtonOne("Mint With ETH")
-        }
-        
-    }
-}
 
 
 
@@ -203,7 +165,7 @@ function Mint_main() {
                         data-bs-target="#placeBidModal"
                         className="bg-accent shadow-accent-volume hover:bg-accent-dark inline-block w-full 
                     rounded-full py-3 px-8 text-center font-semibold text-white transition-all"
-                        onClick={() => mint()}
+                        onClick={() => myMintBNB()}
                       >
                         {btnOne}
                       </a>
