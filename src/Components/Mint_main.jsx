@@ -2,76 +2,50 @@ import React, { useEffect, useState } from "react";
 import "./Mint_main.css";
 import { loadWeb3 } from "../Api/Api";
 import { wireNftContractAddress, wireNftContractAbi } from "../contracts/contract";
-import axios from "axios";
 import { toast } from "react-toastify";
-import Modal from "react-bootstrap/Modal";
-import Form from 'react-bootstrap/Form';
-// import web3 from "web3";
 import Web3 from "web3";
 const webSupply = new Web3("https://rpc.ankr.com/eth")
 function Mint_main() {
 
   let [value, setValue] = useState(1);
-  const [userid, setuserid] = useState()
   let [mintPriceBnb, setMintPriceBnb] = useState(0);
   let [btnOne, setButtonOne] = useState("Mint With ETH");
-
-
-  const [show, setShow] = useState(false);
-
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
-
-
 
   const increaseValue = () => {
     if (value < 5000) {
       setValue(++value);
-      // console.log("setValue", value);
     }
   };
 
   const decreaseValue = () => {
     if (value > 1) {
       setValue(--value);
-      // console.log("setValue", value);
     }
   };
-
-  const [inputdatahere, setinputdatahere] = useState("100");
-
-
-
 
 
   const myMintBNB = async () => {
     let acc = await loadWeb3();
 
-    if (acc == "No Wallet") {
+    if (acc == "No Wallet") 
+    {
       toast.error("No Wallet Connected")
     }
-    else if (acc == "Wrong Network") {
+    else if (acc == "Wrong Network")
+    {
       toast.error("Wrong Newtwork please connect to Ethereum")
     }
     else {
+
       try {
         setButtonOne("Please Wait While Processing")
         const web3 = window.web3;
         let nftContractOf = new web3.eth.Contract(wireNftContractAbi, wireNftContractAddress);
         let mintingarcPrice = await nftContractOf.methods.minting_price().call()
-
-        // console.log("mintForB",nftContractOf.methods);
         mintingarcPrice = webSupply.utils.fromWei(mintingarcPrice);
-
         setMintPriceBnb(mintingarcPrice)
         let totalMintingPriceARC = value * mintingarcPrice
-
-        // console.log("mintingbnbPrice", totalMintingPriceARC);
         let payableAmount = webSupply.utils.toWei(totalMintingPriceARC.toString())
-        // console.log("payableAmount", payableAmount);
-        // alert(payableAmount)
-
-
         await nftContractOf.methods.mint(value).send({
           from: acc,
           value: payableAmount.toString()
@@ -79,7 +53,6 @@ function Mint_main() {
         })
         toast.success("Transaction Confirmed")
         setButtonOne("Mint With ETH")
-
       }
       catch (e) {
         console.log("Error while minting ", e)
@@ -100,18 +73,6 @@ function Mint_main() {
 
 
 
-  const CheckSponserid = async () => {
-    console.log('what is user id inside function', userid)
-    handleClose()
-    let res = await axios.get(`https://metahorse.herokuapp.com/checkuser?id=${userid}`);
-    console.log("res", res.data.data);
-    if (res.data.data == 1) {
-      myMintBNB()
-    }
-    else {
-      toast.error("user is not exsist")
-    }
-  }
   const getmintpricebnb = async () => {
     const web3 = webSupply;
 
@@ -126,9 +87,7 @@ function Mint_main() {
 
     setMintPriceBnb(mintingbnbPrice)
   }
-  useEffect(() => {
-    // getMydata();
-  }, []);
+  
   useEffect(() => {
     getmintpricebnb()
   }, [])
@@ -168,41 +127,7 @@ function Mint_main() {
                   width="50%"
                 />
 
-                {/* <!-- Modal --> */}
-                <div
-                  className="modal fade"
-                  id="imageModal"
-                  tabindex="-1"
-                  aria-labelledby="buyNowModalLabel"
-                  aria-hidden="true"
-                >
-                  <div className="modal-dialog !my-0 flex h-full items-center justify-center p-4">
-                    <img
-                      src="assets/img/hero/item-11.png"
-                      alt="item"
-                      width="80%"
-                    />
-                  </div>
-
-                  <button
-                    type="button"
-                    className="btn-close absolute top-6 right-6"
-                    data-bs-dismiss="modal"
-                    aria-label="Close"
-                  >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 24 24"
-                      width="24"
-                      height="24"
-                      className="h-6 w-6 fill-white"
-                    >
-                      <path fill="none" d="M0 0h24v24H0z"></path>
-                      <path d="M12 10.586l4.95-4.95 1.414 1.414-4.95 4.95 4.95 4.95-1.414 1.414-4.95-4.95-4.95 4.95-1.414-1.414 4.95-4.95-4.95-4.95L7.05 5.636z"></path>
-                    </svg>
-                  </button>
-                </div>
-                {/* <!-- end modal --> */}
+              
               </figure>
 
               {/* <!-- Details --> */}
@@ -282,25 +207,7 @@ function Mint_main() {
             </div>
           </div>
         </section>
-        <Modal show={show} onHide={handleClose} className="" centered >
-          {/* <Modal.Header closeButton style={{ backgroundColor: "#3a1f05" }}>
-                                                        <Modal.Title className='text-white'>Sponser ID</Modal.Title>
-                                                    </Modal.Header> */}
-          <Modal.Body >
-            <Form.Group className="mb-3" controlId="formBasicEmail">
-              <Form.Label>Enter Id</Form.Label>
-              <Form.Control type="number" value={userid} onChange={(e) => setuserid(e.target.value)} className='' placeholder="Enter here" />
 
-            </Form.Group>
-
-
-            <div className="btn minus" onClick={() => { CheckSponserid() }}>
-              submit
-            </div>
-
-          </Modal.Body>
-
-        </Modal>
 
 
       </main>
