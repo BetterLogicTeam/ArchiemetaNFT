@@ -215,7 +215,7 @@ function Mint_main() {
                           If you are using a mobile device (phone or tablet) please sign into your wallet and connect the dapp <a className="blue" href="https://archiemetanft.com/" target="_blank">www.archiemetanft.com</a> in the wallet browser and then mint.
                             </p>
 
-                            <a className="blue" href="https://www.youtube.com/watch?v=IInLiMEsv0k" target="_blank">How To Mint?</a>
+                            <a className="blue" href="https://www.youtube.com/watch?v=IInLiMEsv0k" target="_blank">How To Mint? Click to See</a>
                           </div>
                         </div>
                       </div>
