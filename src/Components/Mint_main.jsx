@@ -188,16 +188,37 @@ function Mint_main() {
                         </a>
                       </div>
 
+                     
+                      
+
                     </div>
+                    
                   </div>
 
                 </div>
+
+                
 
 
 
               </div>
 
             </div>
+
+            <div className="note mx-auto max-w-2xl pt-16 text-center">
+                        <div className="note_heading">
+                          <h2>
+                          NOTE:
+                          </h2>
+                          <div className="note_para">
+                            <p className="dark:text-jacarta-200 banner_p text-lg leading-normal">
+                          If you are using a mobile device (phone or tablet) please sign into your wallet and connect the dapp <a className="blue" href="https://archiemetanft.com/" target="_blank">www.archiemetanft.com</a> in the wallet browser and then mint.
+                            </p>
+
+                            <a className="blue" href="https://www.youtube.com/watch?v=IInLiMEsv0k" target="_blank">How To Mint?</a>
+                          </div>
+                        </div>
+                      </div>
           </div>
         </section>
 

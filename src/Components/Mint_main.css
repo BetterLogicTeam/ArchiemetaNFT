@@ -129,3 +129,31 @@
 .mint_bttn{
     background-color: #7c2f6e !important;
 }
+
+.note_para{
+    color: white;
+}
+
+
+.note{
+    padding-top: 27px !important;
+}
+
+.note_2{
+    padding-top: 87px;
+}
+
+.blue{
+    color: rgb(205, 251, 0);
+    font-size: 19px;
+}
+
+@media (min-width:600px) and (max-width:6000px) {
+    .note{
+        display: none !important;
+    }
+
+    .hero_main{
+        padding-bottom: 0px !important;
+    }
+}
